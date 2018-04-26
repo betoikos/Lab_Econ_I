@@ -206,7 +206,7 @@ teamwins2 <- select(teamwins2, -team)
 merged <- inner_join(teamwins2, salaries,by=c("year", "Team"))
 summary(merged)
 
-
+write.csv(merged, "database2013_2018.csv", row.names = FALSE)
 # --------------------------------------
 # 7. Graphing data
 
