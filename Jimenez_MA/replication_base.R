@@ -7,12 +7,12 @@
 
 getwd()
 
-# Para fijar el directorio de trabajo deben usar el cÃƒÂ³digo de abajo. 
+# Para fijar el directorio de trabajo deben usar el código de abajo. 
 # Utilicen el directorio de la carpeta con su nombre
 
-setwd("C://Users/Humberto MartÃ­nez/Documents/GitHub/Lab_Econ_I/H/Replication")
+setwd("C:/Users/office depot/Documents/GitHub/Lab_Econ_I/Jimenez_MA")
 
-# Verificar que el directorio se fijÃƒÂ³ correctamente
+# Verificar que el directorio se fijó correctamente
 getwd()
 
 #install.packages("dplyr")
@@ -21,7 +21,7 @@ getwd()
 #install.packages("httr")
 # install.packages("ggplot2")
 # install.packages("stargazer")
-
+install.packages("XML")
 library(XML)
 library(dplyr)
 library(tidyr)
@@ -39,7 +39,7 @@ sal2017 <- readHTMLTable(rawToChar(sal2017$content))[[1]]
 sal2016 <- GET("http://www.usatoday.com/sports/mlb/salaries/2016/player/all/#card_full_width_main")
 sal2016 <- readHTMLTable(rawToChar(sal2016$content))[[1]]
 
-# problema con este aÃ±o
+# problema con este año
 # sal2015 <- GET("/MLBSalaries2015.html")
 sal2015 <- readHTMLTable("MLBSalaries2015.html")[[1]]
 
@@ -55,7 +55,7 @@ sal2012 <- readHTMLTable(rawToChar(sal2012$content))[[1]]
 sal2011 <- GET("http://www.usatoday.com/sports/mlb/salaries/2011/player/all/#card_full_width_main")
 sal2011 <- readHTMLTable(rawToChar(sal2011$content))[[1]]
 
-# Asignamos el aÃ±o
+# Asignamos el año
 
 sal2018$year <- 2018
 sal2017$year <- 2017
@@ -73,7 +73,7 @@ salaries <- select(salaries, -rank)
 
 write.csv(salaries, "salaries.csv", row.names = FALSE)
 
-# hasta aquÃ­ todoc cool
+# hasta aquí todoc cool
 
 
 
@@ -85,7 +85,7 @@ salaries <- select(salaries, year, Salary, Name, Team)
 str(salaries)
 
 # We also see that Salary is a character with dollar signs and commas. 
-#Letâ€™s strip all the punctuation from Salary, and turn it into a numerical variable.
+#Let's strip all the punctuation from Salary, and turn it into a numerical variable.
 
 salaries$Salary <- as.numeric(gsub("[[:punct:]]","",salaries$Salary))
 summary(salaries$Salary)
@@ -117,8 +117,8 @@ head(salaries, n=3)
 salaries <- salaries %>% group_by(year, Team, payroll) %>% summarize(top20=sum(Salary))
 salaries$top20share <- salaries$top20/salaries$payroll*100 
 
-# Letâ€™s put payroll in millions rather than dollars. It will make the magnitude of our regression coefficients easier to read. 
-# Letâ€™s also check some descriptive statistics on top20share.
+# Let's put payroll in millions rather than dollars. It will make the magnitude of our regression coefficients easier to read. 
+# Let's also check some descriptive statistics on top20share.
 salaries$payroll <- salaries$payroll/1000000
 summary(salaries)
 
@@ -158,11 +158,11 @@ teamwins <- unite(teamwins, year_games, Year, G)
 teamwins2 <- gather(data=teamwins, value=wins, key=team, ARI,ATL,BLA,BAL,BOS,CHC,CHW,CIN,CLE,COL,DET,HOU,KCR,LAA,LAD,MIA,MIL,MIN,NYM,NYY,OAK,PHI,PIT,SDP,SFG,SEA,STL,TBR,TEX,TOR,WSN)
 head(teamwins2)
 
-# Nuevamente separamos aÃ±os y juegos
+# Nuevamente separamos años y juegos
 teamwins2 <- separate(teamwins2,year_games, c("year", "games"))
 head(teamwins2)
 
-# Convertimos algunas a numÃ©ricas
+# Convertimos algunas a numéricas
 
 teamwins2$games <- as.numeric(teamwins2$games)
 teamwins2$wins <- as.numeric(teamwins2$wins)
@@ -172,7 +172,7 @@ teamwins2$year <- as.numeric(teamwins2$year)
 teamwins2$pctwin <- teamwins2$wins/teamwins2$games*100
 teamwins2 <- arrange(teamwins2,pctwin)
 
-# Vemos estadÃ­sticos, top y bottom 
+# Vemos estadísticos, top y bottom 
 summary(teamwins2)
 head(teamwins2)
 tail(teamwins2)
