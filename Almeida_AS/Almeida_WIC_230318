@@ -1,0 +1,157 @@
+# Clase del 
+
+Esta vez se vuelve muy importante usar las funciones para guardar en un directorio
+    >getwd()
+    setwd("C:/Users/Alejandro/Documents/Maestr?a Colmex/Econometr?a I/Laboratorio")
+    getwd()
+
+
+
+Hay que instalar los paquetes que usaremos, junto con la librería y la base de datos.
+
+    >install.packages("AER")
+    library("AER")
+    data("Journals")
+    summary(Journals)
+
+
+### Head() regresa los primeros elementos de un dataframe
+    >head(Journals)
+
+### Tail regresa los ultimos elementos de un dataframe
+    >tail(Journals)
+    Journals
+
+    Journals$publisher
+
+### Creamos una variable que diga el precio por cada cita
+    >Journals$citeprice <- Journals$price/Journals$citations     # Editamos la base de datos.
+# Nota: Mantener intacta la base de datos original.
+
+#### attach() permite acceder a los elementos de un dataframe "directamente"
+    >attach(Journals)   #mantener los datos como variables.
+
+### Funcion para hacer graficos
+    >plot(log(subs), log(citeprice))
+    rug(log(subs))
+    rug(log(citeprice), side = 2) 
+
+#### detach() cierra el "fácil acceso" al dataframe
+    >detach(Journals)  
+##### Nota: Es recomendable NO usar attach y detach.
+
+#### Graficos sin usad attach:
+    >plot(log(subs) ~ log(citeprice), data = Journals)
+    plot(log(citeprice) ~ log(subs), data = Journals)
+
+
+#### Exportando un grafico a PDF
+    >pdf("testPDF.pdf", height = 5, width = 6)
+    plot(subs ~ citeprice, data = Journals)
+    dev.off()                    
+    
+#### Exportando ahora a PNG y JPG
+
+    >jpeg(filename = "testJPG.jpg",
+    width = 1000, height = 1000, units = "px")     #"px": pixeles
+    plot(subs ~ citeprice, data = Journals)
+    dev.off()
+
+    png(filename = "testPNG.png",
+    width = 1000, height = 1000, units = "px")
+    plot(subs ~ citeprice, data = Journals)
+    dev.off()
+
+#### Ahora hacemos histogramas
+
+    >hist(Journals$citeprice, freq = FALSE)     # Gr?fico base.
+
+    lines(density(Journals$citeprice), col = 6)
+
+
+#### Para obtener el resumen de la variable
+    >summary(Journals$publisher)
+
+    tab <- table(Journals$publisher)    
+    prop.table(tab)
+    barplot(tab)
+    pie(tab)
+ ##### Está muy feo, entonces juntamos en un "otros" las publishers menos importantes
+    >sortedtab = sort(tab, decreasing = TRUE)   # Acomoda los datos del vector.
+    otros = sum(sortedtab[7:52])
+    main = sortedtab[1:6]
+
+    Editoriales = append(main,otros)
+    Editoriales
+
+    barplot(Editoriales)
+
+    pie(Editoriales, main="Mayores editoriales de Journals")
+
+#### Ahora exportamos los plots
+    pdf("piePDF.pdf", height = 5, width = 6)
+    pie(Editoriales, main="Mayores editoriales de Journals")
+    dev.off()
+
+### Generamos un dataset desde cero
+
+
+#### Muestras aleatorias normales
+
+    library(MASS)
+
+    n = 30 # Tama??o de la muestra
+
+    mu = 0 # Media de U
+    su = 0.2 # Varianza de U
+
+    mx = c(4,2,0,0,2) # Vector de medias de X 
+    sx = matrix(c(4,-1,0,0,0,
+              -1,1,0,0,0,
+              0,0,1,0,0,
+              0,0,0,9,2,
+              0,0,0,2,4),5) # Varianza de X
+
+    Usample = rnorm(n,mu,su) # Muestra aleatoria de U
+    Xsample = mvrnorm(n,mx,sx) # Muestra aleatoria de x1 y x2
+
+
+    Usample
+    Xsample
+
+    lbls <- c("US", "UK", "Australia", "Germany", "France")       # Generamos una variable con los nombres de las variables.
+    colnames(Xsample) <- lbls
+    Xsample
+
+    index = matrix(1:30)
+    index
+
+    datos = cbind(index,Xsample)
+
+    datosF = as.data.frame(datos)
+
+    plot_colors <- c("blue","red","forestgreen")
+
+### Diversos tipos de gráficos:
+
+##### specify them ourself
+    plot(datosF$US, type = "o", col=plot_colors[1], ylim=c(-2,13), ylab = "Crecimiento", xlab = "Periodos")
+##### Graph trucks with red dashed line and square points
+    lines(datosF$UK, type="o", pch=200, lty=5, col=plot_colors[2])
+
+##### Graph suvs with green dotted line and diamond points
+    lines(datosF$Australia, type="o", pch=126, lty=8, col=plot_colors[3])
+
+##### Create a title with a red, bold/italic font
+    title(main="Pa?ses", col.main="blue", font.main=4)
+
+    legend(25, 13, c("UK","Australia", "US"), c("blue","red","forestgreen"),cex=0.5)
+
+
+
+#### Vamos a hacer un último gráfico con distribuciones frecuentes
+
+    curve(dnorm, from = -5, to = 5, col = "slategray", lwd = 3,
+      main = "Density of the standard normal distribution")
+      text(-5, 0.3, expression(f(x) == frac(1, sigma ~~ sqrt(2*pi)) ~~ e^{-frac((x - mu)^2, 2*sigma^2)}), adj = 0)
+
