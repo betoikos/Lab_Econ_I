@@ -260,23 +260,23 @@ MCO(A,C)
 
 ## Muestras aleatorias normales
 
-library(MASS)
+  library(MASS)
 
-n = 30 # Tamaño de la muestra
+  n = 30 # Tamaño de la muestra
 
-mu = 0 # Media de U
-su = 0.2 # Varianza de U
+  mu = 0 # Media de U
+  su = 0.2 # Varianza de U
 
-mx = c(4,2,0,0,2) # Vector de medias de X 
-sx = matrix(c(4,-1,0,0,0,
-              -1,1,0,0,0,
-              0,0,1,0,0,
-              0,0,0,9,2,
-              0,0,0,2,4),5) # Varianza de X
+  mx = c(4,2,0,0,2) # Vector de medias de X 
+  sx = matrix(c(4,-1,0,0,0,
+                -1,1,0,0,0,
+                0,0,1,0,0,
+                0,0,0,9,2,
+                0,0,0,2,4),5) # Varianza de X
 
-Usample = rnorm(n,mu,su) # Muestra aleatoria de U
-Xsample = mvrnorm(n,mx,sx) # Muestra aleatoria de x1 y x2
+  Usample = rnorm(n,mu,su) # Muestra aleatoria de U
+  Xsample = mvrnorm(n,mx,sx) # Muestra aleatoria de x1 y x2
 
 
-Usample
-Xsample
+  Usample
+  Xsample
