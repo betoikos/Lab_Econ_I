@@ -1,15 +1,15 @@
-# by Humberto MartÃ­nez GarcÃ­a
+# by Humberto Martínez García
 # hmartinez@colmex.mx
 # Licence Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
 
 getwd()
 
-# Para fijar el directorio de trabajo deben usar el cÃƒÂ³digo de abajo. 
+# Para fijar el directorio de trabajo deben usar el código de abajo. 
 # Utilicen el directorio de la carpeta con su nombre
 
-setwd("C://Users/Humberto MartÃ­nez/Documents/GitHub/Lab_Econ_I/H/HW14")
+setwd("C:/Users/office depot/Documents/GitHub/Lab_Econ_I/Jimenez_MA/HW14")
 
-# Verificar que el directorio se fijÃƒÂ³ correctamente
+# Verificar que el directorio se fijó correctamente
 getwd()
 
 #install.packages("dplyr")
@@ -49,7 +49,6 @@ data2 = melt(data, id.vars='lwage')
 ggplot(data2) + geom_jitter(aes(value,lwage, colour=variable),) + geom_smooth(aes(value,lwage, colour=variable), method=lm, se=FALSE) + facet_wrap(~variable, scales="free_x")+labs(x = "Levels", y = "log(average hourly earnings)")
 ##
 
-
 reg0 = lm(lwage ~ educ + exper + tenure)
 reg0
 
@@ -60,12 +59,11 @@ ggplot(reg0res, aes(x = .fitted, y = .resid)) + geom_point()
 #
 
 # Checking if residuals are normal
-require(ggfortify)
-require(gvlma)
+library(ggfortify)
+library(gvlma)
 autoplot(reg0)
 gvlma(reg0)
 #
-
 
 varu = var(reg0$residuals)
 
