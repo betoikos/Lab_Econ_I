@@ -1,7 +1,7 @@
 # Humberto Martínez García
 # hmartinez@colmex.mx
 # Licence Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
-	```
+```
 Este es un ejemplo de un bloque de código.
 
 ```
