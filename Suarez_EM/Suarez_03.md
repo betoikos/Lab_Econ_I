@@ -58,11 +58,11 @@ getwd()
 a = 1
 b = 7
 # Verificando si dos números son iguales
-if(a == b){
-  print("Los dos números son iguales!!")
-} else {
-  print("Los dos números son distintos!!")
-}
+  if(a == b){
+    print("Los dos números son iguales!!")
+  } else {
+    print("Los dos números son distintos!!")
+  }
 
 # Verificando si dos números son distintos
 if(a != b){
