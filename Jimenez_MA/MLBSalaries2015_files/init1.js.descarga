@@ -1,0 +1,20 @@
+//<script>
+bouncex.state = {"newvid":false,"iol":false,"tn":1524705176,"pvid":6,"rc":false,"mobile":false,"vip":"200.52.255.1","geo":{"country_code":"MX","country_code3":"MEX","country_name":"Mexico","region":"09","city":"Mexico","postal_code":"06300","latitude":19.434200000000004,"longitude":-99.138599999999997,"area_code":null,"dma_code":null,"metro_code":null,"continent_code":"NA","zip":"06300","country":"MX","region_name":"Distrito Federal"}};
+bouncex.cookie = {"v":{"article_count":0,"article_url":"","last_vis_id":"","vis_count":19,"adblock_detected":false,"gps_source":false,"product_id_499":"","ever_logged_in":false},"sid":15,"fvt":1524690670,"vid":1524703215461140,"ao":0,"lp":"https%3A%2F%2Fwww.usatoday.com%2Fsports%2Fmlb%2Fsalaries%2F2017%2Fplayer%2Fall%2F","as":0,"vpv":6,"d":"d","r":"www.usatoday.com","cvt":1524703215,"gcr":61,"m":0,"did":"7178724638479375286","lvt":1524705176,"campaigns":{"650706":{"lvt":1524690556,"lavid":1,"la":1524690556,"fsa":1524690556,"as":1,"ao":1}}};
+bouncex.brandStyles = false;
+bouncex.webfonts = false;
+bouncex.campaigns = false;
+bouncex.gbi.stacks = false;
+bouncex.debug = false;
+bouncex.testmode = {"bxtest":false,"office":false,"bxdev":false};
+
+
+bouncex.tryCatch(function(){
+	if(bouncex.browser.msie){
+		bouncex.setTimeout2(function(){
+			bouncex.init();
+		}, 0);
+	} else {
+		bouncex.init();
+	}
+})();

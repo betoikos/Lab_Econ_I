@@ -1,70 +1,98 @@
-# Título
-Este es un template para que puedan subir su trabajo hecho en clase.
-## Estructura básica de Markdown
-Los párrafos se hacen dejando una línea sin caracteres entre líneas de código (es decir, para empezar un párrafo en lugar de "dar un sólo ENTER" se deben "dar dos ENTER").
+# Primera sesión de R.
+En la primer parte del laboratorio se mostraron las funciones getwd() y setwd(), las cuales nos dicen cual es nuestra carpeta de trabajo y la cambia, respectivamente.
+ getwd()
+ setwd("C://Users/Jhair/OneDrive/Documentos/Lab_Econ_I/Lopez_J/HW14")
 
-Este es el segundo párrafo y así.
+## Sobre las funciones basicas integradas.
+Aqui se mostraron algunas funciones importantes de conocer y que se encuentran integradas en R por default.
+1. Raíz cuadrada.
+ sqrt(10)
+ [1] 3.162278
 
- 
-### Negritas, cursivas y combinación de negritas y cursivas
+2. Logaritmos y exponencial.
+ > log(2)
+ [1] 0.6931472
+ > exp(4)
+ [1] 54.59815
 
-En los párrafos se puede incluir *texto en cursivas* poniendo las palabras entre asteriscos o bien entre guiones bajos como este otro _texto en cursivas_. 
+## Sobre los tipos y la asignación de variables.
 
-Para **texto en negritas** se ponen las palabras entre asteriscos dobles o bien entre guiones bajos dobles como __este otro texto en negritas__.
+En esta parte de mostro que los datos podian ser caracteres, números o valores logicos, de forma que con ellos se podía operar. Para saber que tipo de datos contiene un elemento se usa la función class(), y para asignar valores se define una (variable)=(valor).
 
-Y, naturalmente, *cursivas y  **negritas** pueden combinarse* como pueden claramente ver.
+ > a=exp(1)
+ > class(a)
+ [1] "numeric"
+ > b="dog"
+ > class(b)
+ [1] "character"
 
-### Listas
+Los vectores se pueden crear con el comando c(), que dentro tiene los elementos separados por comas:
 
-Para hacer listas enumeradas se pone número seguido de punto y un espacio: 
+ > a=c(1,2,3,4)
+ > a
+ [1] 1 2 3 4
 
-1. Elemento 1 de la lista enumerada
-2. Elemento 2 de la lista enumerada
-    1. Elemento 2.1 de la lista
-    2. Elemento 2.2 de la lista
-        1. Elemento 2.2.1 de la lista
-        2. Elemento 2.1.2 de la lista
-3. Elemento 3 de la lista enumerada
-    1. Elemento 3.1 de la lista
-    2. Elemento 3.2 de la lista
- 
-Para hacer listas sin enumerar:
+Con los cuales se puede operar con facilidad al igual que con los números.
 
-* Uno
-* Dos
-* Tres
-    - Sí
-    - No
-    - Quizá
-    - 5
-        - Sí que sí
-        - No que no
-    - ajam
-* Cuatro
+En el caso de matrices, estan se crean de la siguiente manera:
 
-## Links
-Link hacia google [aquí](https://www.google.com), y [aquí adelante](https://www.google.com "Google's Homepage") también pero con un "título" . 
+ > A = matrix(c(1,2,3,4,5,6,7,8,9),3)
+ > A
+      [,1] [,2] [,3]
+ [1,]    1    4    7
+ [2,]    2    5    8
+ [3,]    3    6    9
 
-Para que el link completo sea mostradoa se debe encerrar en signos de "menor que" y "mayor que" <http://www.github.com>.
+Que por defaul, acomoda los valores por columna, en caso de quererse por hilera se le agrega el comando matrix(...,byrow=T).
+Con las matrices la multiplicación de matrices se hace como sigue:
 
-### Añadir imágenes
-Para que puedan poner imágenes que tengan en su carpeta:
+ > C= matrix(1:9, byrow = TRUE, nrow = 3)
+ > A-C
+      [,1] [,2] [,3]
+ [1,]    0    2    4
+ [2,]   -2    0    2
+ [3,]   -4   -2    0
+ > A%*%C
+      [,1] [,2] [,3]
+ [1,]   66   78   90
+ [2,]   78   93  108
+ [3,]   90  108  126
 
-![alt text](img/acdc.png "Letrero cuando se ubica el cursor encima.")
+Donde la ultima operación indica dicha multiplicación matricial.
+Para transponer dicha matrix se usa la función t() , para la identidad la función diag() y para sacar la inversa solve()
 
-## Citas en bloque
+ > t(A)
+      [,1] [,2] [,3]
+ [1,]    1    2    3
+ [2,]    4    5    6
+ [3,]    7    8    9
+ > diag(3)
+      [,1] [,2] [,3]
+ [1,]    1    0    0
+ [2,]    0    1    0
+ [3,]    0    0    1
 
-Como dijo alguna Jack el destripador
-> Vamos
->
-> por
->
-> partes.
+Para llamar elementos de una matriz de utilisan corchetes, de la siguiente manera:
 
+ > A[1,1]
+ [1] 1
+ > A[,1]
+ [1] 1 2 3
 
-## Referencias para profundizar
-La referencia oficial para la sintaxis de Markdown es [Daring Fireball](https://daringfireball.net/projects/markdown/syntax).
+Donde el primer elemento son el número de hilera y columna.
+Para concatenar matrices, es decir juntarlas se usa la función cbind() y rbind(), las cuales agregan elementos por columna o hilera.
 
-Si quieres volver a aprender lo básico de Markdown cono un tutorial práctico y muy didáctico puedes probar con [este](http://commonmark.org/help/tutorial/).
-
+ > cbind(A,C)
+      [,1] [,2] [,3] [,4] [,5] [,6]
+ [1,]    1    4    7    1    2    3
+ [2,]    2    5    8    4    5    6
+ [3,]    3    6    9    7    8    9
+ > rbind(A,C)
+      [,1] [,2] [,3]
+ [1,]    1    4    7
+ [2,]    2    5    8
+ [3,]    3    6    9
+ [4,]    1    2    3
+ [5,]    4    5    6
+ [6,]    7    8    9
 
