@@ -68,7 +68,7 @@ Veamos la diferencia de plotear en niveles
           pdf("testPDF.pdf", height = 5, width = 6)
           plot(subs ~ citeprice, data = Journals)
           dev.off()
-[testPDF](https://github.com/betoikos/Lab_Econ_I/tree/master/Suarez_EM/testPDF.pdf)
+![testPDF](https://github.com/betoikos/Lab_Econ_I/tree/master/Suarez_EM/testPDF.pdf)
 
 ## Gráficos en JPG y PNG
 
@@ -79,7 +79,7 @@ Veamos la diferencia de plotear en niveles
      plot(subs ~ citeprice, data = Journals)
      dev.off()
 
-![testJPG](C:/Users/emsuarez/Documents/testJPG.jpg)
+![testJPG](https://github.com/betoikos/Lab_Econ_I/tree/master/Suarez_EM/testJPG.jpg)
 
 ### Imagén en PNG
    
@@ -88,7 +88,7 @@ Veamos la diferencia de plotear en niveles
           plot(subs ~ citeprice, data = Journals)
           dev.off()
 
-![im3](C:/Users/emsuarez/Documents/testPNG.png)
+![testPNG](![testJPG](https://github.com/betoikos/Lab_Econ_I/tree/master/Suarez_EM/testJPG.jpg)
 
 # Histógramas
      
@@ -112,6 +112,8 @@ Lines es un gráfico de línea, en este caso añade la apariencia de la densidad
      hist(Journals$citeprice, freq = FALSE)
      lines(density(Journals$citeprice), col = 2) # Rojo
      dev.off()
+     
+![histoPDF](![testJPG](https://github.com/betoikos/Lab_Econ_I/tree/master/Suarez_EM/histoPDF.pdf)
 
 Mejorando las gráficas
     
@@ -134,6 +136,7 @@ Exportando nuevamente
           ylab = "Densidad")
      lines(density(Journals$citeprice), col = 2) # Rojo
      dev.off()
+![histoPDFv2](https://github.com/betoikos/Lab_Econ_I/tree/master/Suarez_EM/histoPDFv2.pdf)
 
 Distribución de frecuencias
      
@@ -172,13 +175,15 @@ Eso hace a nuestros plots mucho más entendibles
      pie(Editoriales, main="Mayores editoriales de Journals")
 
 Exportando los plots
-pdf("piePDF.pdf", height = 5, width = 6)
-pie(Editoriales, main="Mayores editoriales de Journals")
-dev.off()
+     
+     pdf("piePDF.pdf", height = 5, width = 6)
+     pie(Editoriales, main="Mayores editoriales de Journals")
+     dev.off()
+![piePDF](https://github.com/betoikos/Lab_Econ_I/tree/master/Suarez_EM/piePDF.pdf)
 
 
 
-# Ejeplo de dataframe desde cero
+# Ejemplo de dataframe desde cero
 
  Obtenemos una muestra aleatoria normal
 
