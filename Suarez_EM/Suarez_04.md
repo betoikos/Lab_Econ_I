@@ -83,7 +83,7 @@ Ayuda a encontrar cosas en la documentación de R
 	
 
 ## Generando funciones
-  cuadrado = function(z){
+    cuadrado = function(z){
       y=z^2
       return(y)
     }
@@ -123,7 +123,7 @@ Ayuda a encontrar cosas en la documentación de R
     }
 
 
-# Aplicando la chicharronera en x^2+2x-1
+    # Aplicando la chicharronera en x^2+2x-1
     chicha(1,2,-1)
 
 # Loops
