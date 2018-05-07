@@ -1,62 +1,63 @@
-#Sesió 3 
+#Sesión 3 
 ## Índice
-### Data frames
-### Plots
+### Bases de datos
+### Gráficos
 
 # Dataframes & plots
 
-Instalando los paquetes que usaremos
-install.packages("AER")
+necesitamos la libreria AER para poder hacer uso de una base de datos existente en algún sitio 
+     install.packages("AER")
+     library("AER")
 
-# Cargamos la librería y la base de datos
-library("AER")
-
+# BAses de datos
+Cargando la base de datos 
 data("Journals")
 
-# summary nos da un resumen del input
-summary(Journals)
+La variable summary nos da un resumen del input
+     summary(Journals)
 
-# Creamos una matriz para comparar con un dataframe
-JOURNAL = matrix(1:100)
+Creamos una matriz para comparar con un dataframe
+     JOURNAL = matrix(1:100)
 
-# Head() regresa los primeros elementos de un dataframe
-head(Journals)
+Head() regresa los primeros elementos de un dataframe
+     head(Journals)
 
-# Tail regresa los últimos elementos de un dataframe
-tail(Journals)
+Tail regresa los últimos elementos de un dataframe
+     tail(Journals)
 
-#Creamos una variable que diga el precio por cada cita
-Journals$citeprice <- Journals$price/Journals$citations
+Creamos una variable que diga el precio por cada cita
+     Journals$citeprice <- Journals$price/Journals$citations
 
-# attach() permite acceder a los elementos de un dataframe "directamente"
-attach(Journals)
+attach() permite acceder a los elementos de un dataframe "directamente"
+     attach(Journals)
 
-# Scatter plot
-# plot() es la función básica para gráficos en R
-plot(log(subs), log(citeprice))
+# Gráficos
+plot() es la función básica para gráficos en R
+     plot(log(subs), log(citeprice))
 
-# rug() añade barras para indicar sobre los ejes en donde se encuentra una observación
-rug(log(subs))
-rug(log(citeprice), side = 2)
+rug() añade barras para indicar sobre los ejes en donde se encuentra una observación
+     rug(log(subs))
+     rug(log(citeprice), side = 2)
 
-# detach() cierra el "fácil acceso" al dataframe
-detach(Journals)
+detach() cierra el "fácil acceso" al dataframe
+     detach(Journals)
 
-# Es recomendable NO usar attach y detach.
+Es recomendable NO usar attach y detach.
 
-# Para plotear lo mismo sin tener que "attachear" el dataframe:
-plot(log(subs) ~ log(citeprice), data = Journals)
+Para plotear lo mismo sin tener que "attachear" el dataframe:
+     plot(log(subs) ~ log(citeprice), data = Journals)
 
-# Veamos la diferencia de plotear en niveles
-plot(subs ~ citeprice, data = Journals)
+Veamos la diferencia de plotear en niveles
+     plot(subs ~ citeprice, data = Journals)
 
 
 # Exportando un gráfico a PDF
-pdf("testPDF.pdf", height = 5, width = 6)
-plot(subs ~ citeprice, data = Journals)
-dev.off()
+     pdf("testPDF.pdf", height = 5, width = 6)
+     plot(subs ~ citeprice, data = Journals)
+     dev.off()
+ ![Iagén en df](Bibliotecas/Documentos/testPDF.jpg)
 
-## ?Devices para JPG y para PNG
+## Graáficos en JPG y PNG
 
 jpeg(filename = "testJPG.jpg",
      width = 1000, height = 1000, units = "px")
@@ -68,7 +69,7 @@ png(filename = "testPNG.png",
 plot(subs ~ citeprice, data = Journals)
 dev.off()
 
-### Histogramas
+### Hist´´ogramas
 # Densidad
 hist(Journals$citeprice, freq = FALSE)
 # Lines es un gráfico de línea, en este caso añade la apariencia de la densidad
@@ -147,7 +148,7 @@ dev.off()
 
 
 
-### Hacer un dataframe desde cero
+# Ejeplo de dataframe desde cero
 
 ## Obtenemos una muestra aleatoria normal
 
@@ -197,8 +198,3 @@ title(main="Países", col.main="blue", font.main=4)
 
 # Creamos un recuadro para referenciar a las líneas graficadas
 legend(25, 13, c("UK","Australia", "US"), c("blue","red","forestgreen"),cex=0.5)
-
-
-# Referencias 
-# El ejemplo de Journals se basa en uno muy similar de 
-# Kleiber & Zeileis (2008) "Applied econometrics with R".
