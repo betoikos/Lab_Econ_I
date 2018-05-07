@@ -7,7 +7,7 @@
 
 necesitamos la libreria AER para poder hacer uso de una base de datos existente en algún sitio 
      
-     install.packages("AER")
+    install.packages("AER")
     library("AER")
 
 # Bases de datos
@@ -47,7 +47,7 @@ plot() es la función básica para gráficos en R
 rug() añade barras para indicar sobre los ejes en donde se encuentra una observación
         
         rug(log(subs)  
-         rug(log(citeprice), side = 2)
+        rug(log(citeprice), side = 2)
 
 detach() cierra el "fácil acceso" al dataframe
           
@@ -68,7 +68,7 @@ Veamos la diferencia de plotear en niveles
           pdf("testPDF.pdf", height = 5, width = 6)
           plot(subs ~ citeprice, data = Journals)
           dev.off()
-![im1](C:/Users/emsuarez/Documents/testPDF.pdf)
+![im1](https://github.com/betoikos/Lab_Econ_I/tree/master/Suarez_EM/test.pdf)
 
 ## Gráficos en JPG y PNG
 
@@ -81,7 +81,7 @@ Veamos la diferencia de plotear en niveles
 
 ![im2](C:/Users/emsuarez/Documents/testJPG.jpg)
 
-###Imagén en PNG
+### Imagén en PNG
    
         png(filename = "testPNG.png",
               width = 1000, height = 1000, units = "px")
