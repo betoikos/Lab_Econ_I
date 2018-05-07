@@ -1,4 +1,4 @@
-#Sesión 3 
+# Sesión 3 
 ## Índice
 ### Bases de datos
 ### Gráficos
@@ -68,9 +68,10 @@ Veamos la diferencia de plotear en niveles
           pdf("testPDF.pdf", height = 5, width = 6)
           plot(subs ~ citeprice, data = Journals)
           dev.off()
-![Imagén en pdf](C:/Users/emsuarez/Documents/testPDF.pdf)
+![](C:/Users/emsuarez/Documents/testPDF.pdf)
 
 ## Gráficos en JPG y PNG
+
 ### Imagen en JPG
      
      jpeg(filename = "testJPG.jpg",
@@ -78,7 +79,7 @@ Veamos la diferencia de plotear en niveles
      plot(subs ~ citeprice, data = Journals)
      dev.off()
 
-![Imagén en pdf](C:/Users/emsuarez/Documents/testJPG.jpg)
+![](C:/Users/emsuarez/Documents/testJPG.jpg)
 
 ###Imagén en PNG
    
@@ -87,10 +88,9 @@ Veamos la diferencia de plotear en niveles
           plot(subs ~ citeprice, data = Journals)
           dev.off()
 
-![Imagén en pdf](C:/Users/emsuarez/Documents/testPNG.png)
+![](C:/Users/emsuarez/Documents/testPNG.png)
 
-#Histógramas
-# Densidad
+# Histógramas
      
      hist(Journals$citeprice, freq = FALSE)
 Lines es un gráfico de línea, en este caso añade la apariencia de la densidad
@@ -149,11 +149,13 @@ Distribución de frecuencias
      tab <- table(Journals$publisher)
      prop.table(tab)
 
- Gráfico de barras
+# Gráfico de barras
+     
      barplot(tab)
 
-## Gráfico de pastel
+# Gráfico de pastel
      pie(tab)
+
 Reordenando el database para mejorar las visualizaciones
 
           sortedtab = sort(tab, decreasing = TRUE)
@@ -163,13 +165,13 @@ Reordenando el database para mejorar las visualizaciones
      Editoriales = append(main,otros)
      Editoriales
 
-# Eso hace a nuestros plots mucho más entendibles
+Eso hace a nuestros plots mucho más entendibles
 
-barplot(Editoriales)
+     barplot(Editoriales)
 
-pie(Editoriales, main="Mayores editoriales de Journals")
+     pie(Editoriales, main="Mayores editoriales de Journals")
 
-# Exportando los plots
+Exportando los plots
 pdf("piePDF.pdf", height = 5, width = 6)
 pie(Editoriales, main="Mayores editoriales de Journals")
 dev.off()
