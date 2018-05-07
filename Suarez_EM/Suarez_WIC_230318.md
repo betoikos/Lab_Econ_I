@@ -88,7 +88,7 @@ Veamos la diferencia de plotear en niveles
           plot(subs ~ citeprice, data = Journals)
           dev.off()
 
-![testPNG](![testJPG](https://github.com/betoikos/Lab_Econ_I/tree/master/Suarez_EM/testJPG.jpg)
+![testPNG](https://github.com/betoikos/Lab_Econ_I/tree/master/Suarez_EM/testJPG.jpg)
 
 # Histógramas
      
@@ -113,7 +113,7 @@ Lines es un gráfico de línea, en este caso añade la apariencia de la densidad
      lines(density(Journals$citeprice), col = 2) # Rojo
      dev.off()
      
-![histoPDF](![testJPG](https://github.com/betoikos/Lab_Econ_I/tree/master/Suarez_EM/histoPDF.pdf)
+![histoPDF](https://github.com/betoikos/Lab_Econ_I/tree/master/Suarez_EM/histoPDF.pdf)
 
 Mejorando las gráficas
     
