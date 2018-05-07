@@ -9,67 +9,68 @@ necesitamos la libreria AER para poder hacer uso de una base de datos existente 
      install.packages("AER")
      library("AER")
 
-# BAses de datos
+# Bases de datos
 Cargando la base de datos 
 data("Journals")
 
 La variable summary nos da un resumen del input
-     summary(Journals)
+          summary(Journals)
 
 Creamos una matriz para comparar con un dataframe
-     JOURNAL = matrix(1:100)
+          JOURNAL = matrix(1:100)
 
 Head() regresa los primeros elementos de un dataframe
-     head(Journals)
+          head(Journals)
 
 Tail regresa los últimos elementos de un dataframe
-     tail(Journals)
+          tail(Journals)
 
 Creamos una variable que diga el precio por cada cita
-     Journals$citeprice <- Journals$price/Journals$citations
+          Journals$citeprice <- Journals$price/Journals$citations
 
 attach() permite acceder a los elementos de un dataframe "directamente"
-     attach(Journals)
+          attach(Journals)
 
 # Gráficos
 plot() es la función básica para gráficos en R
-     plot(log(subs), log(citeprice))
+          plot(log(subs), log(citeprice))
 
 rug() añade barras para indicar sobre los ejes en donde se encuentra una observación
-     rug(log(subs))
-     rug(log(citeprice), side = 2)
+          rug(log(subs))
+          rug(log(citeprice), side = 2)
 
 detach() cierra el "fácil acceso" al dataframe
-     detach(Journals)
+          detach(Journals)
 
 Es recomendable NO usar attach y detach.
 
 Para plotear lo mismo sin tener que "attachear" el dataframe:
-     plot(log(subs) ~ log(citeprice), data = Journals)
+          plot(log(subs) ~ log(citeprice), data = Journals)
 
 Veamos la diferencia de plotear en niveles
-     plot(subs ~ citeprice, data = Journals)
+          plot(subs ~ citeprice, data = Journals)
 
 
 # Exportando un gráfico a PDF
-     pdf("testPDF.pdf", height = 5, width = 6)
-     plot(subs ~ citeprice, data = Journals)
-     dev.off()
- ![Iagén en df](Bibliotecas/Documentos/testPDF.jpg)
+          pdf("testPDF.pdf", height = 5, width = 6)
+          plot(subs ~ citeprice, data = Journals)
+          dev.off()
+ ![Imagén en pdf](C:/Users/emsuarez/Documents/testPDF.pdf)
 
-## Graáficos en JPG y PNG
+## Gráficos en JPG y PNG
 
 jpeg(filename = "testJPG.jpg",
      width = 1000, height = 1000, units = "px")
 plot(subs ~ citeprice, data = Journals)
 dev.off()
-
+ ![Imagén en pdf](C:/Users/emsuarez/Documents/testJPG.jpg)
 png(filename = "testPNG.png",
     width = 1000, height = 1000, units = "px")
 plot(subs ~ citeprice, data = Journals)
 dev.off()
+ ![Imagén en pdf](C:/Users/emsuarez/Documents/testPNG.png)
 
-### Hist´´ogramas
+### Histógramas
 # Densidad
 hist(Journals$citeprice, freq = FALSE)
 # Lines es un gráfico de línea, en este caso añade la apariencia de la densidad
