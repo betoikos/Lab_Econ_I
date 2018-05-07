@@ -68,7 +68,7 @@ Veamos la diferencia de plotear en niveles
           pdf("testPDF.pdf", height = 5, width = 6)
           plot(subs ~ citeprice, data = Journals)
           dev.off()
-![](C:/Users/emsuarez/Documents/testPDF.pdf)
+![im1](C:/Users/emsuarez/Documents/testPDF.pdf)
 
 ## Gráficos en JPG y PNG
 
@@ -79,7 +79,7 @@ Veamos la diferencia de plotear en niveles
      plot(subs ~ citeprice, data = Journals)
      dev.off()
 
-![](C:/Users/emsuarez/Documents/testJPG.jpg)
+![im2](C:/Users/emsuarez/Documents/testJPG.jpg)
 
 ###Imagén en PNG
    
@@ -88,7 +88,7 @@ Veamos la diferencia de plotear en niveles
           plot(subs ~ citeprice, data = Journals)
           dev.off()
 
-![](C:/Users/emsuarez/Documents/testPNG.png)
+![im3](C:/Users/emsuarez/Documents/testPNG.png)
 
 # Histógramas
      
@@ -144,8 +144,8 @@ Distribución de frecuencias
   
      summary(Journals$publisher)
 
- Otros tipos de gráficos
-     
+Definiendo una variable de a base
+
      tab <- table(Journals$publisher)
      prop.table(tab)
 
