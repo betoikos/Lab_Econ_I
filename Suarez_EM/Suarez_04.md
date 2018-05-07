@@ -1,14 +1,14 @@
-	# Sesión 2
+# Sesión 2
 ## Índice
-	### Operadores relacionales
-	### Condicionales 
-	### Funciones
-	### Loops (Ciclos)
-	### Algoritmo de Euclides
-  ### Muestra aleatoria normal 
+### Operadores relacionales
+### Condicionales 
+### Funciones
+### Loops (Ciclos)
+### Algoritmo de Euclides
+### Muestra aleatoria normal 
 	
 
-	# Operadores relacionales
+# Operadores relacionales
 	
 
     7==4
@@ -39,10 +39,10 @@
 
 
 	
-	# Condicionales
+# Condicionales
     a = 1
     b = 7
-	## Verificando si dos números son iguales
+## Verificando si dos números son iguales
     if(a == b){
       print("Los dos números son iguales!!")
     } else {
@@ -50,7 +50,7 @@
     }
 	
 
-	## Verificando si dos números son distintos
+## Verificando si dos números son distintos
     if(a != b){
       print("Los dos números son distintos !!")
     } else {
@@ -58,7 +58,7 @@
     }
 	
 
-	## Verificando si el primer número es menor o igual al segundo
+## Verificando si el primer número es menor o igual al segundo
     if(a <= b){
       print(" a es menor o igual a b!")
     } else {
@@ -67,7 +67,7 @@
 	
 
 
-	# Funciones
+# Funciones
     help("function") 
 Ayuda a encontrar cosas en la documentación de R
 	
@@ -82,7 +82,7 @@ Ayuda a encontrar cosas en la documentación de R
 	
 	
 
-	## Generando funciones
+## Generando funciones
   cuadrado = function(z){
       y=z^2
       return(y)
@@ -123,15 +123,13 @@ Ayuda a encontrar cosas en la documentación de R
     }
 
 
-	# Aplicando la chicharronera en x^2+2x-1
+# Aplicando la chicharronera en x^2+2x-1
     chicha(1,2,-1)
 
-
-	
-	# Loops
+# Loops
 	
 
-	## While
+## While
 	
 
     x = 1
@@ -141,8 +139,8 @@ Ayuda a encontrar cosas en la documentación de R
       }
 
 
-	# "next" hace que se brinque un paso el loop
-	# "break" termina el loop abruptamente
+"next" hace que se brinque un paso el loop
+"break" termina el loop abruptamente
 	
 
     x = 1
@@ -153,7 +151,7 @@ Ayuda a encontrar cosas en la documentación de R
       }
 
 
-	## For
+## For
 	
 
     for(i in 1:30){
@@ -174,7 +172,7 @@ Ayuda a encontrar cosas en la documentación de R
 
 	
 
-	# Algoritmo de Euclides para el máximo común divisor
+# Algoritmo de Euclides para el máximo común divisor
     mcd <- function(a, b){
       A = a
       B = b
@@ -233,7 +231,7 @@ Ayuda a encontrar cosas en la documentación de R
     MCO(A,C)
 
 
-	# Muestras aleatorias normales
+# Muestras aleatorias normales
 	
 
     library(MASS)
