@@ -68,7 +68,7 @@ Veamos la diferencia de plotear en niveles
           pdf("testPDF.pdf", height = 5, width = 6)
           plot(subs ~ citeprice, data = Journals)
           dev.off()
-![im1](https://github.com/betoikos/Lab_Econ_I/tree/master/Suarez_EM/testPDF.pdf)
+![](https://github.com/betoikos/Lab_Econ_I/tree/master/Suarez_EM/testPDF.pdf)
 
 ## Gráficos en JPG y PNG
 
