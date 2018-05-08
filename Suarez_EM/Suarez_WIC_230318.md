@@ -90,7 +90,7 @@ Veamos la diferencia de plotear en niveles
 
 ![testPNG](https://github.com/betoikos/Lab_Econ_I/tree/master/Suarez_EM/testPNG.png)
 
-![alt text](img/testJPG.jpg "Grafico en PNG")
+![alt text](testJPG.jpg "Grafico en PNG")
 
 # Histógramas
      
