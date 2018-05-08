@@ -68,9 +68,10 @@
     varY = matrix(c(vary1,covy1y2,covy1y2,vary2),2)
     varY
  
-         [,1] [,2]
-    [1,]    1   -2
-    [2,]   -2    9
+ 
+   El resultado es |    [,1] |[,2]|
+  | [1,]   | 1  | -2|
+   |[2,]  | -2 |   9|
 
 ### cov(X,Y)
 
