@@ -48,25 +48,47 @@
 
     EX = matrix(c(Ex1,Ex2,Ex3),3)
     EX
-
+          [,1]
+    [1,]    0
+    [2,]   -4
+    [3,]    1
+    
 ###  var(X)
 
     varX = matrix(c(varx1,covx1x2,covx1x3,covx1x2,varx2,covx2x3,covx1x3,covx2x3,varx3),3)
     varX
+          [,1] [,2] [,3]
+    [1,]    1   -1    0
+    [2,]   -1    4    2
+    [3,]    0    2    2
 
 
 ###  var(Y)
 
     varY = matrix(c(vary1,covy1y2,covy1y2,vary2),2)
     varY
+ 
+         [,1] [,2]
+    [1,]    1   -2
+    [2,]   -2    9
 
 ### cov(X,Y)
 
     covXY<- matrix(c(covx1y1,covx1y2,covx2y1,covx2y2,covx3y1,covx3y2),2)
+    covXY
+          [,1] [,2] [,3]
+    [1,]    0   -1    0
+    [2,]    1   -3    3
+
 
 ### cov(Y,X)   (recordemos que cov(Y,X)=cov(X,Y)')
 
     covYX=t(covXY)
+    covYX
+             [,1] [,2]
+        [1,]    0    1
+        [2,]   -1   -3
+        [3,]    0    3
 
 
 
@@ -75,11 +97,16 @@
 ### Llamemos E1 a E(-X1+3x2-4x3), entonces
     E1=c(-1,2,-4)%*%EX
     E1
+          [,1]
+    [1,]  -12
 
 ### Llamemos V1 a var(-x1+3/2X2-4X3), entonces 
 
     V1=t(c(-1,2,-4))%*%varX%*%c(-1,2,-4)
     V1
+          [,1] [,2] [,3]
+    [1,]    1   -1    1
+    [2,]   -1    4   -1
 
 
 ## iii) Calcular E(AX+b) y var(AX+b)
@@ -89,13 +116,28 @@
     A=t(matrix(c(-2,0,1,1,4,-2),3))
     b=c(1,1)
 
+$$
+\left(\begin{array}
+0.8944272 & 0.4472136\\
+-0.4472136 & -0.8944272
+\end{array}\right\)
+
+\left(\begin{array}
+10 & 0\\
+0 & 5
+\end{array}\right)
+$$ 
+
 ### Utilizando propiedades de valor esperado sabemos que E(AX+b)=A*E(X)+b
     E2=A%*%EX+b
 
 ### Utilizando propiedades de la covarianza sabemos que E(AX+b)=A'*var(X)*A
 
     V2=(A)%*%varX%*%t(A)
-
+    V2
+         [,1]
+    [1,]    2
+    [2,]  -17
 
 ## iv) Calcular E(U), E(V), var(U), var(V), cov(U,V) y cov(V,U)
 
