@@ -3,17 +3,15 @@
 
 #############################################################################################
 ##
-##   Tarea 1. Ejercicio 4.
+#   Tarea 1. Ejercicio 4.
 ##
 #############################################################################################
 
 
 
-# Se tiene que X es un vector aleatorio de dimensión 3 y Y un vector 
-# aleatorio de dimensión 
+# Se tiene que X es un vector aleatorio de dimensión 3 y Y un vector  aleatorio de dimensión 
 
-## Utilizando los datos del ejercicio definimos los valores esperados,
-## varianzas y covarianzas de las variables aleatorias de los vectores.  
+## Utilizando los datos del ejercicio definimos los valores esperados, varianzas y covarianzas de las variables aleatorias de los vectores.  
 
     Ex1 = 0
     Ex2 = -4
