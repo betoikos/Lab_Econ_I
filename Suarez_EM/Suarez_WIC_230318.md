@@ -68,7 +68,7 @@ Veamos la diferencia de plotear en niveles
           pdf("testPDF.pdf", height = 5, width = 6)
           plot(subs ~ citeprice, data = Journals)
           dev.off()
-![testPDF](https://github.com/betoikos/Lab_Econ_I/tree/master/Suarez_EM/testPDF.pdf)
+![testPDF](testPDF.pdf)
 
 ## Gráficos en JPG y PNG
 
@@ -115,7 +115,7 @@ Lines es un gráfico de línea, en este caso añade la apariencia de la densidad
      lines(density(Journals$citeprice), col = 2) # Rojo
      dev.off()
      
-![histoPDF](https://github.com/betoikos/Lab_Econ_I/tree/master/Suarez_EM/histoPDF.pdf)
+![histoPDF](histoPDF.pdf)
 
 Mejorando las gráficas
     
@@ -138,7 +138,7 @@ Exportando nuevamente
           ylab = "Densidad")
      lines(density(Journals$citeprice), col = 2) # Rojo
      dev.off()
-![histoPDFv2](https://github.com/betoikos/Lab_Econ_I/tree/master/Suarez_EM/histoPDFv2.pdf)
+![histoPDFv2](histoPDFv2.pdf)
 
 Distribución de frecuencias
      
@@ -181,7 +181,7 @@ Exportando los plots
      pdf("piePDF.pdf", height = 5, width = 6)
      pie(Editoriales, main="Mayores editoriales de Journals")
      dev.off()
-![piePDF](https://github.com/betoikos/Lab_Econ_I/tree/master/Suarez_EM/piePDF.pdf)
+![piePDF](piePDF.pdf)
 
 
 
