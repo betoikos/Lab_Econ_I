@@ -69,9 +69,9 @@
     varY
  
  
-   El resultado es |    [,1] |[,2]|
-  | [1,]   | 1  | -2|
-   |[2,]  | -2 |   9|
+   El resultado es 
+  |  1 | -2|
+  | -2 |  9|
 
 ### cov(X,Y)
 
