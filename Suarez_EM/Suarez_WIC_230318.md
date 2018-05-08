@@ -72,7 +72,7 @@ Veamos la diferencia de plotear en niveles
 
 ## Gráficos en JPG y PNG
 
-### Imagen en JPG
+### Imagen en JPG 
      
      jpeg(filename = "testJPG.jpg",
           width = 1000, height = 1000, units = "px")
