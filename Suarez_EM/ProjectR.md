@@ -67,12 +67,8 @@
 
     varY = matrix(c(vary1,covy1y2,covy1y2,vary2),2)
     varY
- 
- 
-   El resultado es 
- 
-  1 | -2
-   -2 |  9
+     1 | -2
+      -2 |  9
 
 ### cov(X,Y)
 
