@@ -67,8 +67,9 @@
 
     varY = matrix(c(vary1,covy1y2,covy1y2,vary2),2)
     varY
-     1 | -2
-      -2 |  9
+           [,1] [,2]
+    [1,]    1   -2
+    [2,]   -2    9
 
 ### cov(X,Y)
 
@@ -114,28 +115,23 @@
     A=t(matrix(c(-2,0,1,1,4,-2),3))
     b=c(1,1)
 
-$$
-\left(\begin{array}{cc} 
-0.8944272 & 0.4472136\\
--0.4472136 & -0.8944272
-\end{array}\right)
-\left(\begin{array}{cc} 
-10 & 0\\ 
-0 & 5
-\end{array}\right)
-$$ 
 
 ### Utilizando propiedades de valor esperado sabemos que E(AX+b)=A*E(X)+b
     E2=A%*%EX+b
+    E2
+          [,1]
+    [1,]    2
+    [2,]  -17
+
 
 ### Utilizando propiedades de la covarianza sabemos que E(AX+b)=A'*var(X)*A
 
     V2=(A)%*%varX%*%t(A)
     V2
-         [,1]
-    [1,]    2
-    [2,]  -17
-
+          [,1] [,2]
+    [1,]    6   10
+    [2,]   10   33
+        
 ## iv) Calcular E(U), E(V), var(U), var(V), cov(U,V) y cov(V,U)
 
 ### Primero definamos U y V. Veamos que U=U1*X+u y V=V1*X+v
@@ -150,31 +146,53 @@ $$
 
     EU=U1%*%EX+u
     EU
+          [,1]
+    [1,]   -1
+    [2,]   -4
+    [3,]    0
 
 ### E(V)
 
     EV=V1%*%EX+v
+    EV
+          [,1]
+    [1,]    6
+    [2,]  -17
+    
 
 ### var(U)
 
     varU=(U1)%*%varX%*%t(U1)
     varU
-
+         [,1] [,2] [,3]
+    [1,]   19   -7  -32
+    [2,]   -7    4   14
+    [3,]  -32   14   58
 
 ### var(V)
 
     varV=V1%*%varX%*%t(V1)
     varV
+          [,1] [,2]
+    [1,]    5  -14
+    [2,]  -14   59
 
 ### cov(U,V). Sabemos que la cov(U1X+u,V1X+v)=U1*var(X)*V1'
 
     covUV=U1%*%varX%*%t(V1)
     covUV
+           [,1] [,2]
+    [1,]    2  -23
+    [2,]   -3   15
+    [3,]   -6   48
 
 ###cov(V,U)
 
     covVU=t(covUV)
     covVU
+          [,1] [,2] [,3]
+    [1,]    2   -3   -6
+    [2,]  -23   15   48
 
 
 ##  v) Calcular cov(AX+b,CX+d)
@@ -188,6 +206,9 @@ $$
 
     cov1=A%*%varX%*%t(C)
     cov1
+          [,1]
+    [1,]   18
+    [2,]   37
 
 ## vi) Calcular la var(W). W=W1*X+w
 
@@ -199,6 +220,10 @@ $$
 ### var(W)
 
     varW=W1%*%varX%*%t(W1)
+    varW
+          [,1] [,2]
+    [1,]   33  -17
+    [2,]  -17   13
 
 ## vii) Calcular cov(W,Z) y cov(Z,W)
 
@@ -208,11 +233,22 @@ $$
 
 ### Calculamos  cov(W,Z)
 
-    covWZ=W1%*%covXY%*%t(Z1)
+    covWZ=W1%*%covYX%*%t(Z1)
+    covWZ
+          [,1] [,2] [,3]
+    [1,]  -11  -11   11
+    [2,]   -7   -5    3
 
 ### Calculamos  cov(Z,W)
 
-    covZW=Z1%*%covYX%*%t(W1)
+    covZW=Z1%*%covXY%*%t(W1)
+    covZW
+    
+           [,1] [,2]
+     [1,]  -11   -7
+     [2,]  -11   -5
+     [3,]   11    3
+
 
 
 
