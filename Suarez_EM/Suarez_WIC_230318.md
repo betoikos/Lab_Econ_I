@@ -88,9 +88,9 @@ Veamos la diferencia de plotear en niveles
           plot(subs ~ citeprice, data = Journals)
           dev.off()
 
-![testPNG](https://github.com/betoikos/Lab_Econ_I/tree/master/Suarez_EM/testPNG.pngg)
+![testPNG](https://github.com/betoikos/Lab_Econ_I/tree/master/Suarez_EM/testPNG.png)
 
-![alt text](img/testPNG.png "Grafico en PNG")
+![alt text](img/testJPG.jpg "Grafico en PNG")
 
 # Histógramas
      
