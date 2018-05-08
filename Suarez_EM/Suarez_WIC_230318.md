@@ -39,7 +39,7 @@ attach() permite acceder a los elementos de un dataframe "directamente"
          
          attach(Journals)
 
-# Gráficos
+# Gráficos 
 plot() es la función básica para gráficos en R
          
          plot(log(subs), log(citeprice))
