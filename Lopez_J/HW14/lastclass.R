@@ -1,15 +1,15 @@
-# by Humberto Mart�nez Garc�a
+# by Humberto Martínez García
 # hmartinez@colmex.mx
 # Licence Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
 
 getwd()
 
-# Para fijar el directorio de trabajo deben usar el c�digo de abajo. 
+# Para fijar el directorio de trabajo deben usar el código de abajo. 
 # Utilicen el directorio de la carpeta con su nombre
 
-setwd("C:/Users/office depot/Documents/GitHub/Lab_Econ_I/Jimenez_MA/HW14")
+setwd("C://Users/Humberto Martínez/Documents/GitHub/Lab_Econ_I/H/HW14")
 
-# Verificar que el directorio se fij� correctamente
+# Verificar que el directorio se fija correctamente
 getwd()
 
 #install.packages("dplyr")
@@ -24,12 +24,12 @@ getwd()
 load("wage1.RData")
 library("stats")
 
+# Tomamos las variables que nos interesan
 wage = matrix(data$wage)
 educ = matrix(data$educ)
 exper = matrix(data$exper)
 tenure = matrix(data$tenure)
-
-lwage = log(wage)
+lwage = matrix(data$lwage)
 
 n = nrow(wage)
 
@@ -37,20 +37,23 @@ unos = matrix(1, nrow = n, ncol=1) # Vector de unos
 
 X = matrix(c(unos, educ, exper, tenure),n)
 
-
 k = ncol(X)
-
 gl = n-k
 
-##
+# Graficas de las posibles regresiones
 require(ggplot2)
 require(reshape2)
+# Reacomodamos los datos acorde a lo que nos interesa
 data2 = melt(data, id.vars='lwage')
+# Ploteamos las regresiones
 ggplot(data2) + geom_jitter(aes(value,lwage, colour=variable),) + geom_smooth(aes(value,lwage, colour=variable), method=lm, se=FALSE) + facet_wrap(~variable, scales="free_x")+labs(x = "Levels", y = "log(average hourly earnings)")
 ##
 
+# Llevamos a cabo la regresión solicitada
 reg0 = lm(lwage ~ educ + exper + tenure)
 reg0
+
+# INTERPRETACION DE LOS RESULTADOS
 
 # Ploting the residuals
 require(ggplot2)
@@ -59,16 +62,21 @@ ggplot(reg0res, aes(x = .fitted, y = .resid)) + geom_point()
 #
 
 # Checking if residuals are normal
-library(ggfortify)
-library(gvlma)
+require(ggfortify)
+require(gvlma)
+# Via graphs
 autoplot(reg0)
+# Via código interpretado
 gvlma(reg0)
 #
 
+# Obtenemos la varianza de los errores
 varu = var(reg0$residuals)
 
+# Creamos la matriz de coeficientes
 betagorro = matrix(c(reg0$coefficients[1],reg0$coefficients[2],reg0$coefficients[3],reg0$coefficients[4]),4) #Coeficientes estimados
 
+#Extraemos cada coeficiente
 b0 = betagorro[1]
 b1 = betagorro[2]
 b2 = betagorro[3]
@@ -104,9 +112,11 @@ if(abs(t2) > qt(level2,gl)){sprintf("Se rechaza H0: %s con %s de nivel de signif
 # Introductory Econometrics: A Modern Approach. 5th Edition. Se quiere saber si el tamaño de una
 # escuela afecta negativamente al desempeño escolar.
 
-load("meap93.RData")
 
+# Cargamos la base de datos
+load("meap93.RData")
 library("stats")
+
 
 math10 = matrix(data$math10)
 totcomp = matrix(data$totcomp)
