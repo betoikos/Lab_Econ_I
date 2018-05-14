@@ -1,4 +1,4 @@
-#ejercicio 3.5
+#ejercicio 4.5
 #genera una muestra para x=100 
 library(MASS)
 u= function(sigma, n){

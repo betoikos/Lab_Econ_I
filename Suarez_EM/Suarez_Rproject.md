@@ -1,5 +1,34 @@
- FSharp.Formatting 
-#           Evelyn Magali Suárez Reyes
+
+---
+#                                   **Laboratorio de Econometría I**
+##                           *Impartido por Humberto Martínez García*
+
+---
+#
+#                                     **Proyecto final**
+#                                  *Evelyn Magali Suárez Reyes*
+&nbsp;
+# Índice
+* Introducción
+* Ejercicio 4 de la tarea 1
+* Ejercicio 6 de la tarea 1
+* Ejercicio 5 de la tarea 2
+* Ejercicio 5 de la tarea 3
+* Ejercicio 6 de la tarea 3
+* Réplica del ejercicio de beisbol
+* Conclusión
+&nbsp;
+#############################################################################################
+##
+#   Introducción
+##
+#############################################################################################
+
+En el siguiente trabajo se encuentran algunos ejercicios de las tareas del curso Econometría I replicados con ayuda
+del software R-Studio, con el fin de documentar el conocimiento aprendido durante las sesiones de R en el laboratorio de 
+esta mismo cuso. Estos ejercioso son: el jercicio 4 de la tarea 1,
+ejercicio 6 de la tarea 1, ejercicio 5 de la tarea 2, ejercicio 5 de la tarea 3 y ejercicio 6 de la tarea 3. Además de estos ejercicios,
+en el laboratorio de 27 de abril hicimos un ejercicio sobre los salarios de jugadores de las grandes ligas de baisbol en Estados Unidos y la eficiencia de los equipos, basados en este trabajo, en la última parte se realiza una réplica para los años de 2005 a 2011.
 
 #############################################################################################
 ##
@@ -9,9 +38,9 @@
 
 
 
-# Se tiene que X es un vector aleatorio de dimensión 3 y Y un vector  aleatorio de dimensión 
+## Se tiene que X es un vector aleatorio de dimensión 3 y Y un vector aleatorio de dimensión 2.
 
-## Utilizando los datos del ejercicio definimos los valores esperados, varianzas y covarianzas de las variables aleatorias de los vectores.  
+Utilizando los datos del ejercicio definimos los valores esperados, varianzas y covarianzas de las variables aleatorias de los vectores.  
 
     Ex1 = 0
     Ex2 = -4

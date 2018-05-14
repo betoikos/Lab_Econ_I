@@ -1,5 +1,4 @@
-#ejercicio 3.5
-#genera una muestra para x=100 
+#ejercicio 3.6
 library(MASS)
 N      = 200
 m.yx1   = c(0,0,1,1)

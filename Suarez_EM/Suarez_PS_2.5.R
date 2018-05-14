@@ -1,3 +1,18 @@
+#
+#           Evelyn Magali Suárez Reyes
+#
+####################################################
+##
+##   Tarea 2. Ejercicio 5.
+##
+####################################################
+#
+# Sea X una matriz n*k de número reales fijos, b un vector de dimensión k de números reales
+# fijos, U un vector aleatorio de dimensión n con E(U)=0 var(U)=sigma^2*I  y Rb=r. Generar
+#funciones para b_MCO, b_MCR.
+#
+#
+# Función para obtener el vector de coeficientes por mínimos cuadrados ordianrios 
 library(MASS)
 MCO = function(x,y){
   X=x
@@ -13,13 +28,13 @@ MCO = function(x,y){
 }
 
 
-A=matrix(c(5,9,15,65,98,84,5,48,8,32,45,788,4,8,98,7,15,8),6)
+A=matrix(c(2,2,2,2,2,2,3,4,5,10,2,4),4)
 A
 
-B=matrix(5:10,6)
+B=matrix(c(0,1,1,3),4)
 B
 
-C=matrix(5:9,5)
+C=matrix(c(1,1,1,1,1,1,1,1,1),ncol=3)
 C
 MCO(A,B)
 
@@ -42,22 +57,23 @@ MCR=function(X,Y,R,r){
   }
   
   else{ print("No se puede llevar acabo la operación, definir los valores de X, Y, R y r como matrices y verificar dimensiones de éstas. Además recuerda que el número de columnas de x más uno es igual a las de r")
-  
-  if (Xr!=Yr){ print("La operación no se puede llevar acabo, verifica que las dimensiones de X y Y sean correctas (no olvides que el número de filas de X es igual al número de filas de Y")}
-  if (Rc!=Xc) { print("La operación no se puede llevar acabo, verifica que las dimensiones de R y X sean correctas (no olvides que el número de columnas de R es igual al número de columnas de X más 1)")}
-  if (Rr!=rr) { print("La operación no se puede llevar acabo, verifica que las dimensiones de R y r sean correctas (no olvides que el número de filas de R es igual al número de filas de r")}
-}}
+    
+    if (Xr!=Yr){ print("La operación no se puede llevar acabo, verifica que las dimensiones de X y Y sean correctas (no olvides que el número de filas de X es igual al número de filas de Y")}
+    if (Rc!=Xc) { print("La operación no se puede llevar acabo, verifica que las dimensiones de R y X sean correctas (no olvides que el número de columnas de R es igual al número de columnas de X más 1)")}
+    if (Rr!=rr) { print("La operación no se puede llevar acabo, verifica que las dimensiones de R y r sean correctas (no olvides que el número de filas de R es igual al número de filas de r")}
+  }}
 
 # Ejemplo para ver el resultado de la función
-x=matrix(c(1,0,0,1,1,0),ncol=2)
+X=matrix(c(1,0,0,1,1,0),ncol=2)
 Y=matrix(c(1,0,0),ncol=1)
 R=matrix(c(1,1,1),ncol=3)
 r=matrix(c(1),,ncol=1)
 
-MCR(x,Y,R,r)
-
 MCR(X,Y,R,r)
-# Ejemplo para ver cuándo las dimesniones de la matriz son incorrectas
+#Ejemplo para ver cuando las dimensiones no son las correctas
+MCR(X,Y,R,r)
+
+# Ejemplo para ver cuando las dimensiones de la matríz son incorrectas
 
 X=matrix(c(1,0,0,0,1,0,0,0,1),ncol=3)
 Y=matrix(c(1,0,2),ncol=1)

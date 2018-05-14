@@ -1,12 +1,17 @@
 #Sesión 2 de R
 #Operadores
-7==8  
-7!==8
-7<=8  
-condicionales
+```
+6==8  
+6!==8
+6<=8
+```
+##condicionales
+```
 a=1
 b=1
-Verificar si dos números son iguales
+```
+>Verificar si dos números son iguales
+```
 if(a!==b){
 print("los dos numeros son egaux)"
 } else 
@@ -14,18 +19,23 @@ print("non son diferentes")
 }
 funciones
 help("function")
-
-sqrt(25) #el argumento es el input, lo que aparece en la consola es el output
+```
+```
+sqrt(25) ¿
 nrow(X)
 ncol(X)
-
+```
+```
 cuadrado = function(z){
 y=z^2
 return(y)
 }
-
+```
+```
 cuadrado(555)
-Otro ejemplo
+```
+##Otro ejemplo
+```
 raiz=function(x){
 if(x<0){
 print("el número es negativo y me rehuso a darte el ultimo beso")
@@ -34,17 +44,20 @@ print("el número es negativo y me rehuso a darte el ultimo beso")
 }
 }
 raiz(9)
-Ejemplo de función que se le ocurrió a Humberto mientras desayunaba
+```
+```
 hipo=function(a,b){
 c=sqrt(a^2+b^2)
 return(c)
 }
 
 hipo(3,4)
-Chicharronera para polinomios de la forma ax^2+bx+c
-input: tres números reales a, b, c
-output: si se cumple que b^2>=4ac entonces se obtienen las raíces del polinomio
-chichi=function(a,b,c){
+```
+##Chicharronera para polinomios de la forma ax^2+bx+c
+>input: tres números reales a, b, c
+>output: si se cumple que b^2>=4ac 
+```
+chi=function(a,b,c){
 cond=b^2>4*a*c
 if(cond){
     z1=(-b+sqrt(b^2-4*a*c))/2*a
@@ -52,19 +65,21 @@ if(cond){
     Z=matrix(c(z1,z2),1)
     return(Z)
     } else{
-    print("el polinomio tiene raíces complejas, suerte para la próxima")
+    print("el polinomio tiene raíces complejas")
     }
 }
 
-chichi(2,4,2)
+chi(2,4,2)
 Loops
 x=1
 while(x<10){
 x=x+1  #los valores dentro de una función son locales 
 print(x)
 }
-"next" hace que se brinque un paso el loop
-"break" termina el loop abruptamente
+```
+##"next" hace que se brinque un paso el loop
+##"break" termina el loop abruptamente
+```
 x=1
 while(x<8){
 x=x+1
@@ -76,10 +91,10 @@ for(i in 1:300){
     print(paste("este es el loop",i)) #la función paste pega un valor numérico con un texto
 print(i*i)
 }
-
+```
 
 ##cosas que aprendí hacer funciones
-
+```
 raiz = function(x,y){
   if (x<=0){
     print("we cant express imaginary numbers")
@@ -133,3 +148,4 @@ euclides= function(a,b){
 
 euclides(4,0)
 
+```

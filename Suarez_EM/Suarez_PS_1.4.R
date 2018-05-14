@@ -1,5 +1,5 @@
 #
-#           Evelyn Magali Su·rez Reyes
+#           Evelyn Magali Su√°rez Reyes
 #
 ####################################################
 ##
@@ -8,8 +8,8 @@
 ####################################################
 #
 #
-# Se tiene que X es un vector aleatorio de dimensiÛn 3 y Y un vector 
-# aleatorio de dimensiÛn 
+# Se tiene que X es un vector aleatorio de dimensi√≥n 3 y Y un vector 
+# aleatorio de dimensi√≥n 2
 
 ## Utilizando los datos del ejercicio definimos los valores esperados,
 ## varianzas y covarianzas de las variables aleatorias de los vectores.  
