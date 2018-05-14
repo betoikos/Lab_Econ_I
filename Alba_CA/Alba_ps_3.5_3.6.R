@@ -17,4 +17,15 @@ m=c(m1,m2)
 s=adiag(s1,s2)
 x=mvrnorm(800,m,s)
 
+# Ejercicio 3.6
+
+m=c(0,0,1,1)
+s=matrix(c(1,0,1,0,0,9,0,1,1,0,4,0,0,1,0,9),4)
+x=mvrnorm(200,m,s)
+A=matrix(c(0,0,0,1,0,1,0,0,1,0,0,0,0,0,1,0),4)
+#inciso 1
+x1=A%*%t(x)
+#es normal por que es una aplicación lineal hacia un vector aleatorio normal
+m1=A%*%m
+s1=A%*%s%*%t(A)
 
