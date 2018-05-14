@@ -1,16 +1,33 @@
 
 # **Laboratorio de Econometría I**
-##                           *   Impartido por Humberto Martínez García *
+##                           *Impartido por Humberto Martínez García*
 #
-#                                     **    Proyecto final **
-#                                  * Evelyn Magali Suárez Reyes*
+#                                     **Proyecto final**
+#                                  *Evelyn Magali Suárez Reyes*
 #
 #
 #
 # Índice
 * Introducción
 * Ejercicio 4 de la tarea 1
+* Ejercicio 6 de la tarea 1
+* Ejercicio 5 de la tarea 2
+* Ejercicio 5 de la tarea 3
+* Ejercicio 6 de la tarea 3
+* Réplica del ejercicio de beisbol
+* Conclusión
 
+#############################################################################################
+##
+#   Introducción
+##
+#############################################################################################
+
+En el siguiente trabajo se encuentran algunos ejercicios de las tareas del curso Econometría I replicados con ayuda
+del software R-Studio, con el fin de documentar el conocimiento aprendido durante las sesiones de R en el laboratorio de 
+esta mismo cuso. Estos ejercioso son: el jercicio 4 de la tarea 1,
+ejercicio 6 de la tarea 1, ejercicio 5 de la tarea 2, ejercicio 5 de la tarea 3 y ejercicio 6 de la tarea 3. Además de estos ejercicios,
+en el laboratorio de 27 de abril hicimos un ejercicio sobre los salarios de jugadores de las grandes ligas de baisbol en Estados Unidos y la eficiencia de los equipos, basados en este trabajo, en la última parte se realiza una réplica para los años de 2005 a 2011.
 
 #############################################################################################
 ##
