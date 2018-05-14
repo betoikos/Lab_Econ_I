@@ -1,5 +1,5 @@
 
-#replica del script de Humberto Mart�nez bisto en clase
+#replica del script de Humberto Martínez visto en clase
 
 getwd()
 
@@ -34,7 +34,7 @@ sal2005 <- GET("http://www.usatoday.com/sports/mlb/salaries/2005/player/all/#car
 sal2005 <- readHTMLTable(rawToChar(sal2005$content))[[1]]
 
 
-# Asignamos el año
+# Asignamos el aÃ±o
 
 sal2010$year <- 2010
 sal2009$year <- 2009
@@ -60,7 +60,7 @@ salaries <- select(salaries, year, Salary, Name, Team)
 str(salaries)
 
 # We also see that Salary is a character with dollar signs and commas. 
-#Let’s strip all the punctuation from Salary, and turn it into a numerical variable.
+#Letâ€™s strip all the punctuation from Salary, and turn it into a numerical variable.
 
 salaries$Salary <- as.numeric(gsub("[[:punct:]]","",salaries$Salary))
 summary(salaries$Salary)
@@ -80,7 +80,7 @@ salaries <- salaries %>% group_by(year, Team ) %>% mutate(payroll=sum(Salary), p
 salaries <- arrange(salaries, Salary)
 head(salaries, n=3)
 
-# Nos quedamos con el quintil más alto
+# Nos quedamos con el quintil mÃ¡s alto
 salaries <- filter(salaries, pctile==5)
 salaries <- arrange(salaries, Salary)
 head(salaries, n=3)
@@ -89,8 +89,8 @@ head(salaries, n=3)
 salaries <- salaries %>% group_by(year, Team, payroll) %>% summarize(top20=sum(Salary))
 salaries$top20share <- salaries$top20/salaries$payroll*100 
 
-# Let’s put payroll in millions rather than dollars. It will make the magnitude of our regression coefficients easier to read. 
-# Let’s also check some descriptive statistics on top20share.
+# Letâ€™s put payroll in millions rather than dollars. It will make the magnitude of our regression coefficients easier to read. 
+# Letâ€™s also check some descriptive statistics on top20share.
 salaries$payroll <- salaries$payroll/1000000
 summary(salaries)
 
@@ -111,18 +111,18 @@ teamwins <- readHTMLTable(rawToChar(teamwins$content), stringsAsFactors = FALSE)
 write.csv(teamwins, "teamwins.csv", row.names = FALSE)
 teamwins <- read.csv("teamwins.csv",stringsAsFactors = FALSE)
 
-# quedandonos sólo con lo que nos sirve
+# quedandonos sÃ³lo con lo que nos sirve
 teamwins$Year <- as.numeric(teamwins$Year)
 teamwins <- filter(teamwins, !is.na(teamwins$Year))
 
-#Nos quedaremos sólo con los datos de 2013 en adelante
+#Nos quedaremos sÃ³lo con los datos de 2013 en adelante
 teamwins <- filter(teamwins, Year>2004 & Year<2011)
 
 
 # ---------------------------------------------------
 # Reacomodando los datos
 
-# Primero generamos una variable year_games que colapsa años y juegos
+# Primero generamos una variable year_games que colapsa aÃ±os y juegos
 teamwins <- unite(teamwins, year_games, Year, G)
 
 # Usamos gather para colapsar columnas de wins por cada team
@@ -130,11 +130,11 @@ teamwins <- unite(teamwins, year_games, Year, G)
 teamwins2 <- gather(data=teamwins, value=wins, key=team, ARI,ATL,BLA,BAL,BOS,CHC,CHW,CIN,CLE,COL,DET,HOU,KCR,LAA,LAD,MIA,MIL,MIN,NYM,NYY,OAK,PHI,PIT,SDP,SFG,SEA,STL,TBR,TEX,TOR,WSN)
 head(teamwins2)
 
-# Nuevamente separamos años y juegos
+# Nuevamente separamos aÃ±os y juegos
 teamwins2 <- separate(teamwins2,year_games, c("year", "games"))
 head(teamwins2)
 
-# Convertimos algunas a numéricas
+# Convertimos algunas a numÃ©ricas
 
 teamwins2$games <- as.numeric(teamwins2$games)
 teamwins2$wins <- as.numeric(teamwins2$wins)
@@ -144,14 +144,14 @@ teamwins2$year <- as.numeric(teamwins2$year)
 teamwins2$pctwin <- teamwins2$wins/teamwins2$games*100
 teamwins2 <- arrange(teamwins2,pctwin)
 
-# Vemos estadísticos, top y bottom 
+# Vemos estadÃ­sticos, top y bottom 
 summary(teamwins2)
 head(teamwins2)
 tail(teamwins2)
 
 # Tenemos algunos NA
-# “BLA” which is a code baseball-reference.com used for Baltimore Orioles in 1901 and 1902. The new code for the Orioles is “BAL”. 
-# We will drop observations that have NA for winning percentage (i.e. we drop team “BLA”).
+# â€œBLAâ€ which is a code baseball-reference.com used for Baltimore Orioles in 1901 and 1902. The new code for the Orioles is â€œBALâ€. 
+# We will drop observations that have NA for winning percentage (i.e. we drop team â€œBLAâ€).
 
 teamwins2 <- filter(teamwins2, !is.na(pctwin))
 tail(teamwins2)
@@ -159,9 +159,9 @@ tail(teamwins2)
 # --------------------------------------------------------
 # Merging data sets
 
-# salaries y teamwins 2 serán matcheadas por year y team.
+# salaries y teamwins 2 serÃ¡n matcheadas por year y team.
 
-#Primero tenemos que homologar los códigos
+#Primero tenemos que homologar los cÃ³digos
 salaries$Team[salaries$Team=="SF"] = "SFG"
 salaries$Team[salaries$Team=="KC"] = "KCR"
 salaries$Team[salaries$Team=="SD"] = "SDP"
