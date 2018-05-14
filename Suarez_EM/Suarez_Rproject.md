@@ -1,12 +1,13 @@
 
-# **Laboratorio de Econometría I**
+---
+#                                   **Laboratorio de Econometría I**
 ##                           *Impartido por Humberto Martínez García*
+
+---
 #
 #                                     **Proyecto final**
 #                                  *Evelyn Magali Suárez Reyes*
-#
-#
-#
+&nbsp;
 # Índice
 * Introducción
 * Ejercicio 4 de la tarea 1
@@ -16,7 +17,7 @@
 * Ejercicio 6 de la tarea 3
 * Réplica del ejercicio de beisbol
 * Conclusión
-
+&nbsp;
 #############################################################################################
 ##
 #   Introducción
