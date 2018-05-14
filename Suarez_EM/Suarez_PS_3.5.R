@@ -1,5 +1,4 @@
 
-# Este paquete se implementó gracias a Jhair López
 
 install.packages("magic")
 library(magic)
