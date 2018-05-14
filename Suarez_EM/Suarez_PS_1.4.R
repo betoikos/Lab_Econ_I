@@ -9,7 +9,7 @@
 #
 #
 # Se tiene que X es un vector aleatorio de dimensión 3 y Y un vector 
-# aleatorio de dimensión 
+# aleatorio de dimensión 2
 
 ## Utilizando los datos del ejercicio definimos los valores esperados,
 ## varianzas y covarianzas de las variables aleatorias de los vectores.  
