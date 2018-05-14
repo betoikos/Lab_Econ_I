@@ -29,7 +29,7 @@ cov.x3y1=0
 cov.x3y2=3
 cov.y1y2=-2
 ```
-### I
+### I.
 
 ##### Matriz de valores esperados de X
 ```
@@ -220,7 +220,7 @@ CovXY
 EY2=var.Y+(EZ[1,1]^2)
 EY2
 ```
-# E(Xt(X))
+##### E(Xt(X))
 ```
 E.XXt=var.X+c(0,2)%*%t(c(0,2))
 E.XXt
@@ -240,10 +240,10 @@ E.YXt
 EXY=t(E.YXt)
 EXY
 ```
-####
+
 #ejercicio 2.5
-##funciones para bmco bmcr y y para u // no se puede calcular para y y para u, necesimos a fuerzas la matriz x
-### hacemos simulaciones para comprobar que el resullatado está bien
+>funciones para bmco bmcr y y para u // no se puede calcular para y y para u, necesimos a fuerzas la matriz x
+>hacemos simulaciones para comprobar que el resullatado está bien
 ```
 library(MASS)
 N      = 100
@@ -280,7 +280,7 @@ Bmcr(X,Y,R,r)
 ```
 
 #ejercicio 3.5
-##genera una muestra para x=100 
+>genera una muestra para x=100 
 ```
 library(MASS)
 N      = 50
@@ -313,8 +313,9 @@ X      = matrix(c(x1,x2),100,5)
 X
 ```
 #ejercicio 3.6
-library(MASS)
 ```
+library(MASS)
+
 N      = 200
 m.yx1   = c(0,0,1,1)
 
@@ -327,7 +328,7 @@ x1     = mvrnorm(N, m.yx1, cov.yx1)
 ```
 
 #ejercicio 4.5
-#genera una muestra para x=200 
+>genera una muestra para x=200 
 ```
 library(MASS)
 N      = 200
