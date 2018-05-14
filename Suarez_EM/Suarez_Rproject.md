@@ -1,9 +1,16 @@
 
-#                                   Laboratorio de Econometría I
-##                              Impartido por Humberto Martínez García
+# **                                  Laboratorio de Econometría I **
+##                           *   Impartido por Humberto Martínez García *
 #
-#                                         Proyecto final 
-#                                   Evelyn Magali Suárez Reyes
+#                                     **    Proyecto final **
+#                                  * Evelyn Magali Suárez Reyes*
+#
+#
+#
+# Índice
+* Introducción
+* Ejercicio 4 de la tarea 1
+
 
 #############################################################################################
 ##
