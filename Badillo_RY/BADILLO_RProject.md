@@ -241,7 +241,7 @@ EXY=t(E.YXt)
 EXY
 ```
 
-#ejercicio 2.5
+##ejercicio 2.5
 >funciones para bmco bmcr y y para u // no se puede calcular para y y para u, necesimos a fuerzas la matriz x
 >hacemos simulaciones para comprobar que el resullatado está bien
 ```
