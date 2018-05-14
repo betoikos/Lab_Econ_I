@@ -1,5 +1,5 @@
 
-# **                                  Laboratorio de Econometría I **
+# **Laboratorio de Econometría I**
 ##                           *   Impartido por Humberto Martínez García *
 #
 #                                     **    Proyecto final **
