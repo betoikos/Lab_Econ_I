@@ -689,11 +689,15 @@ Ahora graficaremos los datos, para esto es necesario llamar la libreria ggplot2.
       ggtitle("Payroll and performance of MLB teams, 2010-2005") + 
       xlab("Payroll in millions") + ylab("Percent of games won") +
       scale_color_discrete(name="year") + theme_minimal()
+      
+  ![testJPG](Rplot.jpeg)
 
     ggplot(data=merged, aes(x=top20share,y=pctwin, label=Team, color=as.factor(year))) + geom_text(size=3) +
       ggtitle("Team inequality and performance of MLB teams, 2010-2005") + 
       xlab("Share of payroll earned by top 20%") + ylab("Percent of games won") +
       scale_color_discrete(name="year") + theme_minimal()
+  
+  ![testJPG](Rplot01.jpeg)
 
 
 ## Regresión lineal
