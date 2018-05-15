@@ -1,5 +1,11 @@
 
 ---
+EL COLEGIO DE MÉXICO
+MAESTRÍA EN ECONOMÍA. PROMOCIÓN 2017-2019
+
+---
+
+
 #                                   **Laboratorio de Econometría I**
 ##                           *Impartido por Humberto Martínez García*
 
@@ -298,32 +304,47 @@ Utilizando los datos del ejercicio definimos los valores esperados, varianzas y 
     A=t(c(1,0,0))
     EY=A%*%EZ
     EY
+          [,1]
+    [1,]    1
 
 ### Como X=B*Z entonces E(X)=B*E(Z).
 
     B=t(matrix(c(0,1,0,0,0,1),3))
     EX=B%*%EZ
     EX
+          [,1]
+    [1,]    0
+    [2,]    2
 
 ### var(Y)
 
     varY=A%*%varZ%*%t(A)
     varY
+         [,1]
+    [1,]  0.8
 
 ### var(X)
 
     varX=B%*%varZ%*%t(B)
     varX
+         [,1] [,2]
+    [1,]  1.0 -0.8
+    [2,] -0.8  2.0
 
 ### cov(X,Y). Por propiedades de covarianza tenemos que cov(X,Y)=A*var(Z)*B'
 
     covXY=A%*%varZ%*%t(B)
     covXY
+         [,1] [,2]
+    [1,]  0.4 -0.2
 
 ### cov(Y,X). Por propiedades de covarianza tenemos que cov(Y,X)=B*var(Z)*A'
 
     covYX=B%*%varZ%*%t(A)
     covYX
+         [,1]
+    [1,]  0.4
+    [2,] -0.2
 
 ## ii) Calcular E(Y^2), E(X'X), E(YX') y E(XY)
 
@@ -331,16 +352,25 @@ Utilizando los datos del ejercicio definimos los valores esperados, varianzas y 
 
     EY2=varY+(EY)%*%(EY)
     EY2
+    [1] 1.8
 
 ### E(X'X). Como var(X)=E(X'X)-E(X)E(X)' entonces E(X'X)=var(X)+E(X)E(X)'
 
     EXX=varX+EX%*%t(EX)
     EXX
+         [,1] [,2]
+    [1,]  1.0 -0.8
+    [2,] -0.8  6.0
+    
 
 ### E(XX'). Como var(X')=var(X)=E(XX')-E(X')E(X) entonces E(XX')=var(X)+E(X)'E(X)
 
     EXXt=varX+t(EX)%*%EX
     EXXt
+         [,1] [,2]
+    [1,]  1.0 -0.8
+    [2,] -0.8  6.0
+
 
 &nbsp;
 
