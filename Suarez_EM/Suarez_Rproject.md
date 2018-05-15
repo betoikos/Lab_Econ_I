@@ -1,7 +1,7 @@
 
 ---
-EL COLEGIO DE MÉXICO
-MAESTRÍA EN ECONOMÍA. PROMOCIÓN 2017-2019
+# EL COLEGIO DE MÉXICO
+# MAESTRÍA EN ECONOMÍA. PROMOCIÓN 2017-2019
 
 ---
 
@@ -365,7 +365,7 @@ Utilizando los datos del ejercicio definimos los valores esperados, varianzas y 
 
 ### E(XX'). Como var(X')=var(X)=E(XX')-E(X')E(X) entonces E(XX')=var(X)+E(X)'E(X)
 
-    EXXt=varX+t(EX)%*%EX
+    EXXt=t(EXX)
     EXXt
          [,1] [,2]
     [1,]  1.0 -0.8
@@ -382,7 +382,7 @@ Utilizando los datos del ejercicio definimos los valores esperados, varianzas y 
 #
 ## Sea X una matriz nxk de número reales fijos, b un vector de dimensión k de números reales fijos, U un vector aleatorio de dimensión n con E(U)=0 var(U)=sigma^2*I  y Rb=r. Generar funciones para b_MCO, b_MCR.
 
-### Función para obtener el vector de coeficientes por mínimos cuadrados ordianrios 
+### Función para obtener el vector de coeficientes por mínimos cuadrados ordinarios.
 
     library(MASS)
     MCO = function(x,y){
@@ -430,7 +430,7 @@ Ejemplo para ver lo que realiza la función MCO
         b-solve(t(X)%*%X)%*%t(R)%*%solve(R%*%solve(t(X)%*%X)%*%t(R))%*%(R%*%b-r)
       }
 
-      else{ print("No se puede llevar acabo la operación, definir los valores de X, Y, R y r como matrices y verificar dimensiones de éstas. Además recuerda que el número de columnas de x más uno es igual a las de r")
+      else{ print("No se puede llevar a cabo la operación, definir los valores de X, Y, R y r como matrices y verificar dimensiones de éstas. Además, recuerda que el número de columnas de x más uno es igual a las de r")
 
         if (Xr!=Yr){ print("La operación no se puede llevar acabo, verifica que las dimensiones de X y Y sean correctas (no olvides que el número de filas de X es igual al número de filas de Y")}
         if (Rc!=Xc) { print("La operación no se puede llevar acabo, verifica que las dimensiones de R y X sean correctas (no olvides que el número de columnas de R es igual al número de columnas de X más 1)")}
@@ -453,7 +453,7 @@ Ejemplo para ver el resultado de la función MCR
 
 
 
-Ejemplo para ver cuando las dimensiones de la matríz son incorrectas
+Ejemplo para ver cuando las dimensiones de la matriz son incorrectas
 
     X=matrix(c(1,0,0,0,1,0,0,0,1),ncol=3)
     Y=matrix(c(1,0,2),ncol=1)
@@ -461,7 +461,7 @@ Ejemplo para ver cuando las dimensiones de la matríz son incorrectas
     r=matrix(c(1,1,1),ncol=1)
 
     MCR(X,Y,R,r)
-        [1] "No se puede llevar acabo la operación, definir los valores de X, Y, R y r como matrices y verificar dimensiones de éstas. Además recuerda que el número de columnas de x más uno es igual a las de r"
+        [1] "No se puede llevar a cabo la operación, definir los valores de X, Y, R y r como matrices y verificar dimensiones de éstas. Además, recuerda que el número de columnas de x más uno es igual a las de r"
         [1] "La operación no se puede llevar acabo, verifica que las dimensiones de R y X sean correctas (no olvides que el número de columnas de R es igual al número de columnas de X más 1)"
         [1] "La operación no se puede llevar acabo, verifica que las dimensiones de R y r sean correctas (no olvides que el número de filas de R es igual al número de filas de r"
         
@@ -473,9 +473,9 @@ Ejemplo para ver cuando las dimensiones de la matríz son incorrectas
 ##
 #############################################################################################
 
-## Sea X=(X1,X2)', donde X1 tiene una distribución normal con media m1 y varianza s1 y X2 un vector con districución normal con varianza s2 y media m2 independientes. Generar una muestra aleatoria para X de tamaño 100,
+## Sea X=(X1,X2)', donde X1 tiene una distribución normal con media m1 y varianza s1 y X2 un vector con distribución normal con varianza s2 y media m2 independientes. Generar una muestra aleatoria para X de tamaño 100,
 
-Utilizaremos la siguiente libreria
+Utilizaremos la siguiente librería
 
     library(MASS)
 
@@ -486,8 +486,8 @@ Primero definamos las medias y las varianzas de X1 y X2
     s1=matrix(c(1,-.25,-.25,.5),2)
     s2=matrix(c(1,1/3,-1/2,1/3,1/4,0,-.5,0,1),3)
 
-Por una proposición vista en clase, savemos que si dos vectores se distribuyen normal
-y son independiente en tonces el vector conformado por estos dos vectores, 
+Por una proposición vista en clase, sabemos que si dos vectores se distribuyen normal
+y son independiente entonces el vector conformado por estos dos vectores, 
  también se distribuye normal con media m=(m1,m2) y varianza con renglones (s1,0) y (0,s2)
  Así que utilizando esto, escribimos la media de X (m) y la varianza de X (s).
 
@@ -533,8 +533,8 @@ Primero definamos la media y varianza de X y generemos la muestra aleatoria nece
 ##
 #############################################################################################
  Replica el ejercicio realizado en el laboratorio de econometría de la fecha 27 de abril,
-desigualdad del pago en salarios sobre porcentage de juegos ganados
-en las grandes ligas de beísbol. Es necesario instalar los siguiente paquetes y llamar la siguiente librerias:
+desigualdad del pago en salarios sobre porcentaje de juegos ganados
+en las grandes ligas de beisbol. Es necesario instalar los siguientes paquetes y llamar la siguiente librería:
 
     install.packages("dplyr")
     install.packages("tidyr")
@@ -585,14 +585,14 @@ juntar las bases homologar el rango y guardar la base de datos.
     write.csv(salaries, "salaries.csv", row.names = FALSE)
 
 
-Ahora de la base de datos guardada, la leemos y nos quedamos con las variables necesarias, la función str nos permite ver una descripción d elas variabales.
+Ahora de la base de datos guardada, la leemos y nos quedamos con las variables necesarias, la función str nos permite ver una descripción de las variables.
 
     salaries <- read.csv("salaries.csv")
 
     salaries <- select(salaries, year, Salary, Name, Team)
     str(salaries)
 
-Dado que Salary es una cadena de carácteres necesitamos convertirlo en numérico. Necesitamos el promedio de los salarios. Además vemos los 5 salarios más
+Dado que Salary es una cadena de caracteres necesitamos convertirlo en numérico. Necesitamos el promedio de los salarios. Además, vemos los 5 salarios más
 altos y los 5 más bajos
 
     salaries$Salary <- as.numeric(gsub("[[:punct:]]","",salaries$Salary))
@@ -600,7 +600,7 @@ altos y los 5 más bajos
     head(salaries, n=5)
     tail(salaries, n=5)
 
-Según el salario los agregamos por quintiles de salary y nos quedamos con el quintil más alto, Después los agreagamos por equipo y por año  lo dividimos entre la nomina del equipo y lo ponemos por millones de dolares.
+Según el salario los agregamos por quintiles de salary y nos quedamos con el quintil más alto, Después los agregamos por equipo y por año lo dividimos entre la nómina del equipo y lo ponemos por millones de dólares.
 
     salaries <- salaries %>% group_by(year, Team ) %>% mutate(payroll=sum(Salary), pctile=ntile(Salary,5))
     salaries <- arrange(salaries, Salary)
@@ -618,8 +618,8 @@ Convertimos la variable Team en string
 
     salaries$Team <- as.character(salaries$Team)
 
-Nosotros queremos hacer un análisis de la inversión en los equipos y la eficiencia, ya tenemos los salarios pero necesitamos la eficiencia. Por
-eso de la página electrónica siguiente extraemos los datos sobre partidos ganados de los equipos de beísbol en EU.
+Nosotros queremos hacer un análisis de la inversión en los equipos y la eficiencia, ya tenemos los salarios, pero necesitamos la eficiencia. Por
+eso de la página electrónica siguiente extraemos los datos sobre partidos ganados de los equipos de beisbol en EU.
 
     teamwins <- GET("http://www.baseball-reference.com/leagues/MLB/#teams_team_wins3000::none")
     teamwins <- readHTMLTable(rawToChar(teamwins$content), stringsAsFactors = FALSE)[[1]]
@@ -627,7 +627,7 @@ eso de la página electrónica siguiente extraemos los datos sobre partidos gana
     write.csv(teamwins, "teamwins.csv", row.names = FALSE)
     teamwins <- read.csv("teamwins.csv",stringsAsFactors = FALSE)
 
- Guardamos la variables necesarias y los datos necesarios.
+ Guardamos las variables necesarias y los datos necesarios.
 
     teamwins$Year <- as.numeric(teamwins$Year)
     teamwins <- filter(teamwins, !is.na(teamwins$Year))
@@ -639,12 +639,12 @@ eso de la página electrónica siguiente extraemos los datos sobre partidos gana
  
     teamwins <- unite(teamwins, year_games, Year, G)
 
-Usamos gather para colapsar columnas de wins por cada erquipo.
+Usamos gather para colapsar columnas de wins por cada equipo.
 
     teamwins2 <- gather(data=teamwins, value=wins, key=team, ARI,ATL,BLA,BAL,BOS,CHC,CHW,CIN,CLE,COL,DET,HOU,KCR,LAA,LAD,MIA,MIL,MIN,NYM,NYY,OAK,PHI,PIT,SDP,SFG,SEA,STL,TBR,TEX,TOR,WSN)
     head(teamwins2)
 
-Necesitamos separa las variables year y games. Y convertir las variables necesasrias en numeéricas.
+Necesitamos separa las variables year y games. Y convertir las variables necesarias en numéricas.
     
     teamwins2 <- separate(teamwins2,year_games, c("year", "games"))
 
@@ -652,7 +652,7 @@ Necesitamos separa las variables year y games. Y convertir las variables necesas
     teamwins2$wins <- as.numeric(teamwins2$wins)
     teamwins2$year <- as.numeric(teamwins2$year)
 
-Ahora obtengqos el porcentaje de juegos ganados que es la forma en que mediremos la eficiencia de los equipos.
+Ahora obtengamos el porcentaje de juegos ganados que es la forma en que mediremos la eficiencia de los equipos.
 
     teamwins2$pctwin <- teamwins2$wins/teamwins2$games*100
     teamwins2 <- arrange(teamwins2,pctwin)
@@ -662,7 +662,7 @@ Quitamos los missing de la base.
     teamwins2 <- filter(teamwins2, !is.na(pctwin))
     tail(teamwins2)
 
-Ya que los nombrees de los equipo en las bases en algunos caso varian en las bases, es necesario homologarlos para un buen análisis,
+Ya que los nombres de los equipos en las bases en algunos caso varían en las bases, es necesario homologarlos para un buen análisis,
 así como llamamos de la misma manera las columnas
 
     salaries$Team[salaries$Team=="SF"] = "SFG"
@@ -738,21 +738,18 @@ Con el último comando se generó la siguiente tabla:
     Note:                                                       *p<0.1; **p<0.05; ***p<0.01
 
 ### Análisis de los modelos:
-
-Haciendo uso de los datos de bases de datos que se encuentran en la página electrónica http://www.usatoday.com/sports/mlb sobre los salarios de las grandes ligas de beisbol en Estados Unidos para los años de 2005 a 2011 y de los datos de la página "http://www.baseball-reference.com/leagues/MLB/#teams_team_wins3000::none" en el cuál obtuvimos el número de partidos ganados por estos mismos equipos en los mismos años; esto con el de hacer un análisis de la inversión en los pagos de los jugadores y la eficiencia de los equipos. Para hacer un buen  análisis se realizaron tres 
+  
+Haciendo uso de los datos de bases de datos que se encuentran en la página electrónica http://www.usatoday.com/sports/mlb sobre los salarios de las grandes ligas de beisbol en Estados Unidos para los años de 2005 a 2011 y de los datos de la página "http://www.baseball-reference.com/leagues/MLB/#teams_team_wins3000::none" en el cuál obtuvimos el número de partidos ganados por estos mismos equipos en los mismos años; esto con el de hacer un análisis de la inversión en los pagos de los jugadores y la eficiencia de los equipos. Para hacer un buen análisis se realizaron tres 
 regresiones lineales, que a continuación se explican. 
 
-**Modelo (1).** El primer modelo es una regresión lineal de *pctwin* (porcentaje de juegos ganados) contra  *top20share* ( quintil de los salarios más altos de los jugadores). Este modelo permite ver que si en promedio aumenta un millón de dólares el pago se espera que disminuya  0.11 el porcentaje de juegos ganados, auqnue no es estadísticamente significativo. El R^2 es muy pequeño lo que quiere decir que los coeficientes de la regresión explican muy poco del comportamiento de los juegos ganados, además en conjunto las variables no son significativas, pues el estadístico F no es significativo.
+**Modelo (1).** El primer modelo es una regresión lineal de *pctwin* (porcentaje de juegos ganados) contra  *top20share* ( quintil de los salarios más altos de los jugadores). Este modelo permite ver que si en promedio aumenta un millón de dólares el pago se espera que disminuya 0.11 el porcentaje de juegos ganados, aunque no es estadísticamente significativo. El R^2 es muy pequeño lo que quiere decir que los coeficientes de la regresión explican muy poco del comportamiento de los juegos ganados, además en conjunto las variables no son significativas, pues el estadístico F no es significativo.
 
 &nbsp;
 
-**Modelo (2).** El segundo modelo es una regresión lineal de *pctwin* (porcentaje de juegos ganados) contra  *top20share* ( quintil de los salarios más altos de los jugadores) y *payroll* (salarios). Analaizando los coeficientes vemos que si en promedio aumenta un millón de dólares los salarios más altos de los jugadores se espera que en promedio aumente 0.11 el porcentaje de juegos ganados, aunque no es estadísticamente significativo este coeficiente; además si auemnta un millón los salarios se esera que incremente en promedio 0.083% la cantidad de juegos ganados, el coeficiente es significativo a un nivel de significancia de 0.01. En esste caso el R^2 también es muy pequeño lo que quiere decir que los coeficientes de la regresión explican muy poco del comportamiento de los juegos ganados, pero esta vez en conjunto las variables son significativas, pues el estadístico F es significativo con un nivel de significancia de 0.1.
+**Modelo (2).** El segundo modelo es una regresión lineal de *pctwin* (porcentaje de juegos ganados) contra  *top20share* ( quintil de los salarios más altos de los jugadores) y *payroll* (salarios). Analizando los coeficientes vemos que si en promedio aumenta un millón de dólares los salarios más altos de los jugadores se espera que en promedio aumente 0.11 el porcentaje de juegos ganados, aunque no es estadísticamente significativo este coeficiente; además si aumenta un millón los salarios se espera que incremente en promedio 0.083% la cantidad de juegos ganados, el coeficiente es significativo a un nivel de significancia de 0.01. En este caso el R^2 también es muy pequeño lo que quiere decir que los coeficientes de la regresión explican muy poco del comportamiento de los juegos ganados, pero esta vez en conjunto las variables son significativas, pues el estadístico F es significativo con un nivel de significancia de 0.1.
 
-&nbsp:
+&nbsp;
 
-**Modelo (3).** El tercer modelo es una regresión lineal de *pctwin* (porcentaje de juegos ganados) contra  *top20share* ( quintil de los salarios más altos de los jugadores) y el logaritmo natural de *payroll* (salarios). Este modelo permite ver que un aumento de un millón de dólares en los salarios más altos de los jugadores se espera que en promedio disminuye 0.036 el porcentaje de juego ganados, pero este coeficiente no es significativo, en cambio, con 99% de confianza un aumento  de un punto porcentual de los salarios del equipo se espera que aumente 6% el porcentaje de juego ganados. Al igual que los anteriores  el R^2 también es muy pequeño lo que quiere decir que los coeficientes de la regresión explican muy poco del comportamiento de los juegos ganados, y en conjunto las variables son significativas, pues el estadístico F es significativo con un nivel de significancia de 0.1.
+**Modelo (3).** El tercer modelo es una regresión lineal de *pctwin* (porcentaje de juegos ganados) contra  *top20share* ( quintil de los salarios más altos de los jugadores) y el logaritmo natural de *payroll* (salarios). Este modelo permite ver que un aumento de un millón de dólares en los salarios más altos de los jugadores se espera que en promedio disminuye 0.036 el porcentaje de juego ganados, pero este coeficiente no es significativo, en cambio, con 99% de confianza un aumento de un punto porcentual de los salarios del equipo se espera que aumente 6% el porcentaje de juego ganados. Al igual que los anteriores el R^2 también es muy pequeño lo que quiere decir que los coeficientes de la regresión explican muy poco del comportamiento de los juegos ganados, y en conjunto las variables son significativas, pues el estadístico F es significativo con un nivel de significancia de 0.1. 
 
-Es dificil decidir cuál es el mejor modelo ya que si bien el segundo y el tercero tienen un estadístico F significativo los coeficiente varian de signo cuando se hacen variaciones en las variables explicativas. 
-
-
-
+Es difícil decidir cuál es el mejor modelo ya que si bien el segundo y el tercero tienen un estadístico F significativo los coeficientes varían de signo cuando se hacen variaciones en las variables explicativas. 
