@@ -1,4 +1,4 @@
-# Evelyn Magali Su·rez Reyes
+# Evelyn Magali Su√°rez Reyes
 #
 #############################################################################################
 ##
@@ -58,7 +58,7 @@ EXX
 
 ### E(XX'). Como var(X')=var(X)=E(XX')-E(X')E(X) entonces E(XX')=var(X)+E(X)'E(X)
 
-EXXt=varX+t(EX)%*%EX
+EXXt=t(EXX)
 EXXt
 
 
