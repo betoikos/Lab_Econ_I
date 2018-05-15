@@ -291,57 +291,57 @@ Utilizando los datos del ejercicio definimos los valores esperados, varianzas y 
 ## i) Encontrar var(Y), var(X), cov(Y,X) y cov(X,Y), dado que z=(Y,X1,X2)' X=(X1,X2)'
 ### Definamos E(Z) y var(Z)
 
-EZ=c(1,0,2)
-varZ=t(matrix(c(0.8,0.4, -0.2,0.4,1.0,-0.8,-0.2,-0.8,2.0 ),3))
+    EZ=c(1,0,2)
+    varZ=t(matrix(c(0.8,0.4, -0.2,0.4,1.0,-0.8,-0.2,-0.8,2.0 ),3))
 
 ### Como Y=(1,0,0)'*Z entonces EY=(1,0,0)'*EZ.
 
-A=t(c(1,0,0))
-EY=A%*%EZ
-EY
+    A=t(c(1,0,0))
+    EY=A%*%EZ
+    EY
 
 ### Como X=B*Z entonces E(X)=B*E(Z).
 
-B=t(matrix(c(0,1,0,0,0,1),3))
-EX=B%*%EZ
-EX
+    B=t(matrix(c(0,1,0,0,0,1),3))
+    EX=B%*%EZ
+    EX
 
 ### var(Y)
 
-varY=A%*%varZ%*%t(A)
-varY
+    varY=A%*%varZ%*%t(A)
+    varY
 
 ### var(X)
 
-varX=B%*%varZ%*%t(B)
-varX
+    varX=B%*%varZ%*%t(B)
+    varX
 
 ### cov(X,Y). Por propiedades de covarianza tenemos que cov(X,Y)=A*var(Z)*B'
 
-covXY=A%*%varZ%*%t(B)
-covXY
+    covXY=A%*%varZ%*%t(B)
+    covXY
 
 ### cov(Y,X). Por propiedades de covarianza tenemos que cov(Y,X)=B*var(Z)*A'
 
-covYX=B%*%varZ%*%t(A)
-covYX
+    covYX=B%*%varZ%*%t(A)
+    covYX
 
 ## ii) Calcular E(Y^2), E(X'X), E(YX') y E(XY)
 
 ### E(Y^2). Como var(Y)=E(Y^2)-E(Y)^2 entonces E(Y^2)=var(Y)+E(Y)^2
 
-EY2=varY+(EY)%*%(EY)
-EY2
+    EY2=varY+(EY)%*%(EY)
+    EY2
 
 ### E(X'X). Como var(X)=E(X'X)-E(X)E(X)' entonces E(X'X)=var(X)+E(X)E(X)'
 
-EXX=varX+EX%*%t(EX)
-EXX
+    EXX=varX+EX%*%t(EX)
+    EXX
 
 ### E(XX'). Como var(X')=var(X)=E(XX')-E(X')E(X) entonces E(XX')=var(X)+E(X)'E(X)
 
-EXXt=varX+t(EX)%*%EX
-EXXt
+    EXXt=varX+t(EX)%*%EX
+    EXXt
 
 &nbsp;
 
@@ -492,50 +492,51 @@ Primero definamos la media y varianza de X y generemos la muestra aleatoria nece
             Y=A%*%t(X)
             my=A%*%mx
             sy=A%*%sx%*%t(A)
+      
+   
+   &nbsp;
 
 
-#
-#           Evelyn Magali Suárez Reyes
-#
-####################################################
+#############################################################################################
 ##
 ##   Réplica del ejercicio de beisbol
 ##
-####################################################
-# Replica el ejercicio realizado en el laboratorio de econometría de la fecha 27 de abril,
-#desigualdad del pago en salarios sobre porcentage de juegos ganados
-#en las grandes ligas de baseball
-#Es necesario instalar los siguiente paquetes y llamar la siguiente librerias
-install.packages("dplyr")
-install.packages("tidyr")
-install.packages("RCurl")
-install.packages("httr")
-install.packages("ggplot2")
-install.packages("stargazer")
-install.packages("XML")
-library(XML)
-library(dplyr)
-library(tidyr)
-library(httr)
+#############################################################################################
+ Replica el ejercicio realizado en el laboratorio de econometría de la fecha 27 de abril,
+desigualdad del pago en salarios sobre porcentage de juegos ganados
+en las grandes ligas de beísbol. Es necesario instalar los siguiente paquetes y llamar la siguiente librerias:
 
-# Ahora desde la página de internet extraemos las bases de datos sobre los salarios de los jugadores
-sal2010 <- GET("http://www.usatoday.com/sports/mlb/salaries/2010/player/all/#card_full_width_main")
-sal2010 <- readHTMLTable(rawToChar(sal2010$content))[[1]]
+    install.packages("dplyr")
+    install.packages("tidyr")
+    install.packages("RCurl")
+    install.packages("httr")
+    install.packages("ggplot2")
+    install.packages("stargazer")
+    install.packages("XML")
+    library(XML)
+    library(dplyr)
+    library(tidyr)
+    library(httr)
 
-sal2009 <- GET("http://www.usatoday.com/sports/mlb/salaries/2009/player/all/#card_full_width_main")
-sal2009 <- readHTMLTable(rawToChar(sal2009$content))[[1]]
+Ahora desde la página de internet extraemos las bases de datos sobre los salarios de los jugadores
 
-sal2008 <- GET("http://www.usatoday.com/sports/mlb/salaries/2008/player/all/#card_full_width_main")
-sal2008 <- readHTMLTable(rawToChar(sal2008$content))[[1]]
+    sal2010 <- GET("http://www.usatoday.com/sports/mlb/salaries/2010/player/all/#card_full_width_main")
+    sal2010 <- readHTMLTable(rawToChar(sal2010$content))[[1]]
 
-sal2007 <- GET("http://www.usatoday.com/sports/mlb/salaries/2007/player/all/#card_full_width_main")
-sal2007 <- readHTMLTable(rawToChar(sal2007$content))[[1]]
+    sal2009 <- GET("http://www.usatoday.com/sports/mlb/salaries/2009/player/all/#card_full_width_main")
+    sal2009 <- readHTMLTable(rawToChar(sal2009$content))[[1]]
 
-sal2006 <- GET("http://www.usatoday.com/sports/mlb/salaries/2006/player/all/#card_full_width_main")
-sal2006 <- readHTMLTable(rawToChar(sal2006$content))[[1]]
+    sal2008 <- GET("http://www.usatoday.com/sports/mlb/salaries/2008/player/all/#card_full_width_main")
+    sal2008 <- readHTMLTable(rawToChar(sal2008$content))[[1]]
 
-sal2005 <- GET("http://www.usatoday.com/sports/mlb/salaries/2005/player/all/#card_full_width_main")
-sal2005 <- readHTMLTable(rawToChar(sal2005$content))[[1]]
+    sal2007 <- GET("http://www.usatoday.com/sports/mlb/salaries/2007/player/all/#card_full_width_main")
+    sal2007 <- readHTMLTable(rawToChar(sal2007$content))[[1]]
+
+    sal2006 <- GET("http://www.usatoday.com/sports/mlb/salaries/2006/player/all/#card_full_width_main")
+    sal2006 <- readHTMLTable(rawToChar(sal2006$content))[[1]]
+
+    sal2005 <- GET("http://www.usatoday.com/sports/mlb/salaries/2005/player/all/#card_full_width_main")
+    sal2005 <- readHTMLTable(rawToChar(sal2005$content))[[1]]
 
 
 Es necesario asignar el año correspondiente a cada variable
@@ -678,6 +679,7 @@ Llamamos la libreria stargazer ya que esta crea tablas para html, latex, ascii x
     stargazer(m1,m2,m3, type="text")
 
 Con el último comando se generó la siguiente tabla:
+
     =======================================================================================
                                                 Dependent variable:                        
                         -------------------------------------------------------------------
@@ -705,7 +707,19 @@ Con el último comando se generó la siguiente tabla:
     =======================================================================================
     Note:                                                       *p<0.1; **p<0.05; ***p<0.01
 
+### Análisis de los modelos:
 
 Haciendo uso de los datos de bases de datos que se encuentran en la página electrónica http://www.usatoday.com/sports/mlb sobre los salarios de las grandes ligas de beisbol en Estados Unidos para los años de 2005 a 2011, 
-Para determinar la relación según estos datos de la eficiencia y la inversión en lo equipos se realiza una regresión lineal del porcentaje de juegos ganados contra la parte de la nómina que se llevan que están en el quintil más alto de salarios dentro de cada equipo observamos que por cada punto porcentual que aumenta esta desigualdad se esperaría que el porcentaje de juegos ganados disminuyera en 0.11%. 
+Para determinar la relación según estos datos de la eficiencia y la inversión en lo equipos se realiza una regresión lineal del porcentaje de juegos ganados contra la parte de la nómina que se llevan que están en el quintil más alto de salarios dentro de cada equipo observamos que por cada punto porcentual que aumenta esta desigualdad se esperaría que el porcentaje de juegos ganados 
+disminuyera en 0.11%. 
+
+&nbsp;
+
+#############################################################################################
+#
+# Conclusión
+#
+#############################################################################################
+ 
+
 
