@@ -11,20 +11,19 @@
 
 ---
 # Índice
-* Introducción
+* Descripción del trabajo
 * Ejercicio 4 de la tarea 1
 * Ejercicio 6 de la tarea 1
 * Ejercicio 5 de la tarea 2
 * Ejercicio 5 de la tarea 3
 * Ejercicio 6 de la tarea 3
 * Réplica del ejercicio de beisbol
-* Conclusión
 
 &nbsp;
 
 #############################################################################################
 ##
-#   Introducción
+#   Descripción del trabajo.
 ##
 #############################################################################################
 
@@ -284,7 +283,7 @@ Utilizando los datos del ejercicio definimos los valores esperados, varianzas y 
 
 #############################################################################################
 ##
-##   Tarea 1. Ejercicio 6
+##   Tarea 1. Ejercicio 6.
 ##
 #############################################################################################
 #
@@ -384,6 +383,7 @@ Ejemplo para ver lo que realiza la función MCO
      MCO(A,C)
      "No se puede llevar a cabo la operación, verifique las dimensiones de las matrices."
 ### Función para el estimador de coeficientes en mínimos cuadrados restringidos
+
     MCR=function(X,Y,R,r){
 
       Yr=nrow(Y)
@@ -456,7 +456,7 @@ Primero definamos las medias y las varianzas de X1 y X2
     s1=matrix(c(1,-.25,-.25,.5),2)
     s2=matrix(c(1,1/3,-1/2,1/3,1/4,0,-.5,0,1),3)
 
-Por una proposici´n vista en clase, savemos que si dos vectores se distribuyen normal
+Por una proposición vista en clase, savemos que si dos vectores se distribuyen normal
 y son independiente en tonces el vector conformado por estos dos vectores, 
  también se distribuye normal con media m=(m1,m2) y varianza con renglones (s1,0) y (0,s2)
  Así que utilizando esto, escribimos la media de X (m) y la varianza de X (s).
@@ -589,7 +589,7 @@ Convertimos la variable Team en string
     salaries$Team <- as.character(salaries$Team)
 
 Nosotros queremos hacer un análisis de la inversión en los equipos y la eficiencia, ya tenemos los salarios pero necesitamos la eficiencia. Por
-eso de la página electrónica siguiente extraemos los daos sobre partidos ganados de los equipos de besibol en EU.
+eso de la página electrónica siguiente extraemos los datos sobre partidos ganados de los equipos de beísbol en EU.
 
     teamwins <- GET("http://www.baseball-reference.com/leagues/MLB/#teams_team_wins3000::none")
     teamwins <- readHTMLTable(rawToChar(teamwins$content), stringsAsFactors = FALSE)[[1]]
@@ -597,7 +597,7 @@ eso de la página electrónica siguiente extraemos los daos sobre partidos ganad
     write.csv(teamwins, "teamwins.csv", row.names = FALSE)
     teamwins <- read.csv("teamwins.csv",stringsAsFactors = FALSE)
 
- Guardamos la variables necesarias y con los datos necesarios.
+ Guardamos la variables necesarias y los datos necesarios.
 
     teamwins$Year <- as.numeric(teamwins$Year)
     teamwins <- filter(teamwins, !is.na(teamwins$Year))
@@ -605,11 +605,11 @@ eso de la página electrónica siguiente extraemos los daos sobre partidos ganad
     teamwins <- filter(teamwins, Year>2004 & Year<2011)
 
 
- Primero generamos una variable year_games que colapsa years y games
+ Primero generamos una variable year_games que colapsa years y games.
  
     teamwins <- unite(teamwins, year_games, Year, G)
 
-Usamos gather para colapsar columnas de wins por cada erquipo
+Usamos gather para colapsar columnas de wins por cada erquipo.
 
     teamwins2 <- gather(data=teamwins, value=wins, key=team, ARI,ATL,BLA,BAL,BOS,CHC,CHW,CIN,CLE,COL,DET,HOU,KCR,LAA,LAD,MIA,MIL,MIN,NYM,NYY,OAK,PHI,PIT,SDP,SFG,SEA,STL,TBR,TEX,TOR,WSN)
     head(teamwins2)
@@ -627,7 +627,7 @@ Ahora obtengqos el porcentaje de juegos ganados que es la forma en que mediremos
     teamwins2$pctwin <- teamwins2$wins/teamwins2$games*100
     teamwins2 <- arrange(teamwins2,pctwin)
 
-Quitamos los missing de la base
+Quitamos los missing de la base.
     
     teamwins2 <- filter(teamwins2, !is.na(pctwin))
     tail(teamwins2)
@@ -645,14 +645,14 @@ así como llamamos de la misma manera las columnas
     teamwins2$Team <- as.character(teamwins2$team)
     teamwins2 <- select(teamwins2, -team)
 
-Unimos las bases por año y equipo y guardamaos la base
+Unimos las bases por año y equipo y guardamaos la base.
    
        merged <- inner_join(teamwins2, salaries, by=c("year","Team"))
         summary(merged)
 
         write.csv(merged, "database2010_2005.csv", row.names = FALSE)
  
-Ahora graficaremos los datos, para esto es necesario llamar la libreria ggplot2
+Ahora graficaremos los datos, para esto es necesario llamar la libreria ggplot2.
 
     library(ggplot2)
     ggplot(data=merged, aes(x=payroll,y=pctwin, label=Team, color=as.factor(year)))+ geom_text(size=3) +
@@ -709,17 +709,20 @@ Con el último comando se generó la siguiente tabla:
 
 ### Análisis de los modelos:
 
-Haciendo uso de los datos de bases de datos que se encuentran en la página electrónica http://www.usatoday.com/sports/mlb sobre los salarios de las grandes ligas de beisbol en Estados Unidos para los años de 2005 a 2011, 
-Para determinar la relación según estos datos de la eficiencia y la inversión en lo equipos se realiza una regresión lineal del porcentaje de juegos ganados contra la parte de la nómina que se llevan que están en el quintil más alto de salarios dentro de cada equipo observamos que por cada punto porcentual que aumenta esta desigualdad se esperaría que el porcentaje de juegos ganados 
-disminuyera en 0.11%. 
+Haciendo uso de los datos de bases de datos que se encuentran en la página electrónica http://www.usatoday.com/sports/mlb sobre los salarios de las grandes ligas de beisbol en Estados Unidos para los años de 2005 a 2011 y de los datos de la página "http://www.baseball-reference.com/leagues/MLB/#teams_team_wins3000::none" en el cuál obtuvimos el número de partidos ganados por estos mismos equipos en los mismos años; esto con el de hacer un análisis de la inversión en los pagos de los jugadores y la eficiencia de los equipos. Para hacer un buen  análisis se realizaron tres 
+regresiones lineales, que a continuación se explican. 
+
+**Modelo (1).** El primer modelo es una regresión lineal de *pctwin* (porcentaje de juegos ganados) contra  *top20share* ( quintil de los salarios más altos de los jugadores). Este modelo permite ver que si en promedio aumenta un millón de dólares el pago se espera que disminuya  0.11 el porcentaje de juegos ganados, auqnue no es estadísticamente significativo. El R^2 es muy pequeño lo que quiere decir que los coeficientes de la regresión explican muy poco del comportamiento de los juegos ganados, además en conjunto las variables no son significativas, pues el estadístico F no es significativo.
 
 &nbsp;
 
-#############################################################################################
-#
-# Conclusión
-#
-#############################################################################################
- 
+**Modelo (2).** El segundo modelo es una regresión lineal de *pctwin* (porcentaje de juegos ganados) contra  *top20share* ( quintil de los salarios más altos de los jugadores) y *payroll* (salarios). Analaizando los coeficientes vemos que si en promedio aumenta un millón de dólares los salarios más altos de los jugadores se espera que en promedio aumente 0.11 el porcentaje de juegos ganados, aunque no es estadísticamente significativo este coeficiente; además si auemnta un millón los salarios se esera que incremente en promedio 0.083% la cantidad de juegos ganados, el coeficiente es significativo a un nivel de significancia de 0.01. En esste caso el R^2 también es muy pequeño lo que quiere decir que los coeficientes de la regresión explican muy poco del comportamiento de los juegos ganados, pero esta vez en conjunto las variables son significativas, pues el estadístico F es significativo con un nivel de significancia de 0.1.
+
+&nbsp:
+
+**Modelo (3).** El tercer modelo es una regresión lineal de *pctwin* (porcentaje de juegos ganados) contra  *top20share* ( quintil de los salarios más altos de los jugadores) y el logaritmo natural de *payroll* (salarios). Este modelo permite ver que un aumento de un millón de dólares en los salarios más altos de los jugadores se espera que en promedio disminuye 0.036 el porcentaje de juego ganados, pero este coeficiente no es significativo, en cambio, con 99% de confianza un aumento  de un punto porcentual de los salarios del equipo se espera que aumente 6% el porcentaje de juego ganados. Al igual que los anteriores  el R^2 también es muy pequeño lo que quiere decir que los coeficientes de la regresión explican muy poco del comportamiento de los juegos ganados, y en conjunto las variables son significativas, pues el estadístico F es significativo con un nivel de significancia de 0.1.
+
+Es dificil decidir cuál es el mejor modelo ya que si bien el segundo y el tercero tienen un estadístico F significativo los coeficiente varian de signo cuando se hacen variaciones en las variables explicativas. 
+
 
 
